@@ -1,0 +1,47 @@
+version: "3"
+services:
+
+   certh_mongo_container:
+      build: ./mongo-service
+      container_name: certh_mongo_container
+      ports:
+         - 27017:27017
+      volumes: 
+         - ./shared/mongo:/data/db
+
+   certh_springboot_container:
+      build: ./springboot-service
+      container_name: certh_springboot_container
+      ports:
+         - 8080:8080
+      links: 
+         - certh_mongo_container
+      volumes: 
+         - ./shared/spring-logs:/tomcat/logs
+      depends_on:
+      - certh_mongo_container
+
+   certh_frontend_container:
+      build: ./apache-service
+      container_name: certh_frontend_container
+      ports:
+         - 8082:80
+      volumes:
+         - ./apache-service/html/:/var/www/html/:ro
+      links:
+         - certh_springboot_container
+      depends_on:
+      - certh_springboot_container
+
+   # certh_ubuntu_container:
+   #    image: ubuntu:latest
+   #    container_name: certh_ubuntu_container
+   #    restart: always
+   #    command: tail -f /dev/null
+   #    tty: true
+   #    stdin_open: true
+
+# volumes:
+#    db:
+#       driver:
+#          local
