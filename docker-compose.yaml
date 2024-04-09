@@ -1,47 +1,23 @@
 version: "3"
 services:
 
-   certh_mongo_container:
-      build: ./mongo-service
-      container_name: certh_mongo_container
-      ports:
-         - 27017:27017
-      volumes: 
-         - ./shared/mongo:/data/db
-
-   certh_springboot_container:
-      build: ./springboot-service
-      container_name: certh_springboot_container
+   tutorial_spring_label:
+      image: tutorial_spring_image
+      build: ./services/spring
+      container_name: tutorial_spring_container
       ports:
          - 8080:8080
-      links: 
-         - certh_mongo_container
       volumes: 
-         - ./shared/spring-logs:/tomcat/logs
-      depends_on:
-      - certh_mongo_container
+         - ./shared/tomcat-logs:/tomcat/logs
+         - ./shared/spring-logs:/spring/logs
 
-   certh_frontend_container:
-      build: ./apache-service
-      container_name: certh_frontend_container
+   tutorial_kafka_label:
+      image: tutorial_kafka_image
+      build: ./services/kafka
+      container_name: tutorial_kafka_container
       ports:
-         - 8082:80
+         - 9092:9092
       volumes:
-         - ./apache-service/html/:/var/www/html/:ro
-      links:
-         - certh_springboot_container
-      depends_on:
-      - certh_springboot_container
+         - ./shared/kafka:/shared
 
-   # certh_ubuntu_container:
-   #    image: ubuntu:latest
-   #    container_name: certh_ubuntu_container
-   #    restart: always
-   #    command: tail -f /dev/null
-   #    tty: true
-   #    stdin_open: true
 
-# volumes:
-#    db:
-#       driver:
-#          local
