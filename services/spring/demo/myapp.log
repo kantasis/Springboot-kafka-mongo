@@ -2118,3 +2118,803 @@
 2024-04-10T12:42:17.917+03:00  INFO 2730696 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
 2024-04-10T12:42:17.918+03:00  INFO 2730696 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
 2024-04-10T12:42:17.919+03:00  INFO 2730696 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2024-04-10T13:02:19.417+03:00  INFO 2744636 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 2744636 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
+2024-04-10T13:02:19.419+03:00  INFO 2744636 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2024-04-10T13:02:20.196+03:00  INFO 2744636 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2024-04-10T13:02:20.204+03:00  INFO 2744636 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2024-04-10T13:02:21.255+03:00  WARN 2744636 --- [demo] [main] afkaStreamsBinderConfigurationProperties : Ignoring provided value(s) for 'group.id'. Use spring.cloud.stream.default.group or spring.cloud.stream.binding.<name>.group to specify the group instead of group.id
+2024-04-10T13:02:21.294+03:00  INFO 2744636 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
+2024-04-10T13:02:21.429+03:00  INFO 2744636 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T13:02:21.430+03:00  INFO 2744636 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
+2024-04-10T13:02:21.430+03:00  INFO 2744636 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2024-04-10T13:02:21.458+03:00  INFO 2744636 --- [demo] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-my-group-id-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = my-group-id
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2024-04-10T13:02:21.590+03:00  INFO 2744636 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
+2024-04-10T13:02:21.591+03:00  INFO 2744636 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
+2024-04-10T13:02:21.591+03:00  INFO 2744636 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1712743341589
+2024-04-10T13:02:21.594+03:00  INFO 2744636 --- [demo] [main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Subscribed to topic(s): my-topic
+2024-04-10T13:02:21.611+03:00  INFO 2744636 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.462 seconds (process running for 3.331)
+2024-04-10T13:02:21.951+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Cluster ID: ki53YQ-OSTCt9b17q2k7Vw
+2024-04-10T13:02:21.955+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Discovered group coordinator tutorial_kafka_container:9092 (id: 2147483646 rack: null)
+2024-04-10T13:02:21.957+03:00  WARN 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Error connecting to node tutorial_kafka_container:9092 (id: 2147483646 rack: null)
+
+java.net.UnknownHostException: tutorial_kafka_container: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:934) ~[na:na]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1543) ~[na:na]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:852) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306) ~[na:na]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:122) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:510) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1030) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:301) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.tryConnect(ConsumerNetworkClient.java:590) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$FindCoordinatorResponseHandler.onSuccess(AbstractCoordinator.java:907) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$FindCoordinatorResponseHandler.onSuccess(AbstractCoordinator.java:883) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.RequestFuture$1.onSuccess(RequestFuture.java:206) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.RequestFuture.fireSuccess(RequestFuture.java:169) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.RequestFuture.complete(RequestFuture.java:129) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient$RequestFutureCompletionHandler.fireCompletion(ConsumerNetworkClient.java:617) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.firePendingCompletedRequests(ConsumerNetworkClient.java:427) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:312) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:230) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:265) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:240) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:504) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:536) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.updateAssignmentMetadataIfNeeded(KafkaConsumer.java:1220) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1179) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1159) ~[kafka-clients-3.6.1.jar:na]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1639) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1437) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1328) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-04-10T13:02:21.962+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Group coordinator tutorial_kafka_container:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2024-04-10T13:02:21.963+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Requesting disconnect from last known coordinator tutorial_kafka_container:9092 (id: 2147483646 rack: null)
+2024-04-10T13:02:22.064+03:00  WARN 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Error connecting to node tutorial_kafka_container:9092 (id: 1 rack: null)
+
+java.net.UnknownHostException: tutorial_kafka_container
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306) ~[na:na]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:122) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:510) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1030) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:301) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:513) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:270) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:230) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:265) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:240) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:504) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:536) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.updateAssignmentMetadataIfNeeded(KafkaConsumer.java:1220) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1179) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1159) ~[kafka-clients-3.6.1.jar:na]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1639) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1437) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1328) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-04-10T13:02:22.164+03:00  WARN 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Error connecting to node tutorial_kafka_container:9092 (id: 1 rack: null)
+
+java.net.UnknownHostException: tutorial_kafka_container
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306) ~[na:na]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:122) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:510) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1030) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:73) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1203) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1091) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:569) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:280) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:251) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:242) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.awaitMetadataUpdate(ConsumerNetworkClient.java:164) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:277) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:240) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:504) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:536) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.updateAssignmentMetadataIfNeeded(KafkaConsumer.java:1220) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1179) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1159) ~[kafka-clients-3.6.1.jar:na]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1639) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1437) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1328) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-04-10T13:02:22.315+03:00  WARN 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Error connecting to node tutorial_kafka_container:9092 (id: 1 rack: null)
+
+java.net.UnknownHostException: tutorial_kafka_container
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306) ~[na:na]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:122) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:510) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1030) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:73) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1203) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1091) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:569) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:280) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:251) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:242) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.awaitMetadataUpdate(ConsumerNetworkClient.java:164) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:277) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:240) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:504) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:536) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.updateAssignmentMetadataIfNeeded(KafkaConsumer.java:1220) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1179) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1159) ~[kafka-clients-3.6.1.jar:na]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1639) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1437) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1328) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-04-10T13:02:22.447+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T13:02:22.447+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T13:02:22.447+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Unsubscribed all topics or patterns and assigned partitions
+2024-04-10T13:02:22.449+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T13:02:22.449+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T13:02:22.451+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2024-04-10T13:02:22.452+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-10T13:02:22.452+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2024-04-10T13:02:22.456+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-my-group-id-1 unregistered
+2024-04-10T13:02:22.457+03:00  INFO 2744636 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : my-group-id: Consumer stopped
+2024-04-10T13:02:22.477+03:00  INFO 2744636 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T13:02:22.477+03:00  INFO 2744636 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
+2024-04-10T13:02:22.478+03:00  INFO 2744636 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2024-04-10T13:04:18.039+03:00  INFO 2745935 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 2745935 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
+2024-04-10T13:04:18.041+03:00  INFO 2745935 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2024-04-10T13:04:18.758+03:00  INFO 2745935 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2024-04-10T13:04:18.766+03:00  INFO 2745935 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2024-04-10T13:04:19.744+03:00  WARN 2745935 --- [demo] [main] afkaStreamsBinderConfigurationProperties : Ignoring provided value(s) for 'group.id'. Use spring.cloud.stream.default.group or spring.cloud.stream.binding.<name>.group to specify the group instead of group.id
+2024-04-10T13:04:19.786+03:00  INFO 2745935 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
+2024-04-10T13:04:19.964+03:00  INFO 2745935 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T13:04:19.965+03:00  INFO 2745935 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
+2024-04-10T13:04:19.966+03:00  INFO 2745935 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2024-04-10T13:04:20.005+03:00  INFO 2745935 --- [demo] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-my-group-id-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = my-group-id
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2024-04-10T13:04:20.174+03:00  INFO 2745935 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
+2024-04-10T13:04:20.182+03:00  INFO 2745935 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
+2024-04-10T13:04:20.183+03:00  INFO 2745935 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1712743460172
+2024-04-10T13:04:20.187+03:00  INFO 2745935 --- [demo] [main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Subscribed to topic(s): my-topic
+2024-04-10T13:04:20.220+03:00  INFO 2745935 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.446 seconds (process running for 3.369)
+2024-04-10T13:04:20.563+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Cluster ID: ki53YQ-OSTCt9b17q2k7Vw
+2024-04-10T13:04:20.565+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Discovered group coordinator tutorial_kafka_container:9092 (id: 2147483646 rack: null)
+2024-04-10T13:04:20.567+03:00  WARN 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Error connecting to node tutorial_kafka_container:9092 (id: 2147483646 rack: null)
+
+java.net.UnknownHostException: tutorial_kafka_container: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:934) ~[na:na]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1543) ~[na:na]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:852) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306) ~[na:na]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:122) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:510) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1030) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:301) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.tryConnect(ConsumerNetworkClient.java:590) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$FindCoordinatorResponseHandler.onSuccess(AbstractCoordinator.java:907) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$FindCoordinatorResponseHandler.onSuccess(AbstractCoordinator.java:883) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.RequestFuture$1.onSuccess(RequestFuture.java:206) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.RequestFuture.fireSuccess(RequestFuture.java:169) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.RequestFuture.complete(RequestFuture.java:129) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient$RequestFutureCompletionHandler.fireCompletion(ConsumerNetworkClient.java:617) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.firePendingCompletedRequests(ConsumerNetworkClient.java:427) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:312) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:230) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:265) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:240) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:504) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:536) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.updateAssignmentMetadataIfNeeded(KafkaConsumer.java:1220) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1179) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1159) ~[kafka-clients-3.6.1.jar:na]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1639) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1437) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1328) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-04-10T13:04:20.574+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Group coordinator tutorial_kafka_container:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2024-04-10T13:04:20.574+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Requesting disconnect from last known coordinator tutorial_kafka_container:9092 (id: 2147483646 rack: null)
+2024-04-10T13:04:20.675+03:00  WARN 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Error connecting to node tutorial_kafka_container:9092 (id: 1 rack: null)
+
+java.net.UnknownHostException: tutorial_kafka_container
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306) ~[na:na]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:122) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:510) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1030) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:301) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:513) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:270) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:230) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:265) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:240) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:504) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:536) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.updateAssignmentMetadataIfNeeded(KafkaConsumer.java:1220) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1179) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1159) ~[kafka-clients-3.6.1.jar:na]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1639) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1437) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1328) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-04-10T13:04:20.776+03:00  WARN 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Error connecting to node tutorial_kafka_container:9092 (id: 1 rack: null)
+
+java.net.UnknownHostException: tutorial_kafka_container
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306) ~[na:na]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:122) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:510) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1030) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:73) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1203) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1091) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:569) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:280) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:251) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:242) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.awaitMetadataUpdate(ConsumerNetworkClient.java:164) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:277) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:240) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:504) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:536) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.updateAssignmentMetadataIfNeeded(KafkaConsumer.java:1220) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1179) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1159) ~[kafka-clients-3.6.1.jar:na]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1639) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1437) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1328) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-04-10T13:04:20.926+03:00  WARN 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Error connecting to node tutorial_kafka_container:9092 (id: 1 rack: null)
+
+java.net.UnknownHostException: tutorial_kafka_container
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306) ~[na:na]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:122) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:510) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1030) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:73) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1203) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1091) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:569) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:280) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:251) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:242) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.awaitMetadataUpdate(ConsumerNetworkClient.java:164) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:277) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:240) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:504) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:536) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.updateAssignmentMetadataIfNeeded(KafkaConsumer.java:1220) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1179) ~[kafka-clients-3.6.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1159) ~[kafka-clients-3.6.1.jar:na]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1639) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1437) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1328) ~[spring-kafka-3.1.3.jar:3.1.3]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-04-10T13:04:21.049+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T13:04:21.049+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T13:04:21.050+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Unsubscribed all topics or patterns and assigned partitions
+2024-04-10T13:04:21.051+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T13:04:21.052+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T13:04:21.054+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2024-04-10T13:04:21.055+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-10T13:04:21.056+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2024-04-10T13:04:21.065+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-my-group-id-1 unregistered
+2024-04-10T13:04:21.066+03:00  INFO 2745935 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : my-group-id: Consumer stopped
+2024-04-10T13:04:21.087+03:00  INFO 2745935 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T13:04:21.088+03:00  INFO 2745935 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
+2024-04-10T13:04:21.088+03:00  INFO 2745935 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2024-04-10T13:04:46.020+03:00  INFO 2746617 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 2746617 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
+2024-04-10T13:04:46.022+03:00  INFO 2746617 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2024-04-10T13:04:46.730+03:00  INFO 2746617 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2024-04-10T13:04:46.736+03:00  INFO 2746617 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2024-04-10T13:04:47.721+03:00  WARN 2746617 --- [demo] [main] afkaStreamsBinderConfigurationProperties : Ignoring provided value(s) for 'group.id'. Use spring.cloud.stream.default.group or spring.cloud.stream.binding.<name>.group to specify the group instead of group.id
+2024-04-10T13:04:47.758+03:00  INFO 2746617 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
+2024-04-10T13:04:47.902+03:00  INFO 2746617 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T13:04:47.903+03:00  INFO 2746617 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
+2024-04-10T13:04:47.903+03:00  INFO 2746617 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2024-04-10T13:04:47.933+03:00  INFO 2746617 --- [demo] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-my-group-id-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = my-group-id
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2024-04-10T13:04:48.051+03:00  INFO 2746617 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
+2024-04-10T13:04:48.053+03:00  INFO 2746617 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
+2024-04-10T13:04:48.053+03:00  INFO 2746617 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1712743488050
+2024-04-10T13:04:48.056+03:00  INFO 2746617 --- [demo] [main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Subscribed to topic(s): my-topic
+2024-04-10T13:04:48.074+03:00  INFO 2746617 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.318 seconds (process running for 3.204)
+2024-04-10T13:04:48.217+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T13:04:48.219+03:00  WARN 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T13:04:48.219+03:00  WARN 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T13:04:48.318+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T13:04:48.318+03:00  WARN 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T13:04:48.319+03:00  WARN 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T13:04:48.419+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T13:04:48.420+03:00  WARN 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T13:04:48.420+03:00  WARN 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T13:04:48.671+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T13:04:48.671+03:00  WARN 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T13:04:48.671+03:00  WARN 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T13:04:48.802+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T13:04:48.803+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T13:04:48.803+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Unsubscribed all topics or patterns and assigned partitions
+2024-04-10T13:04:48.804+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T13:04:48.804+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T13:04:48.806+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2024-04-10T13:04:48.807+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-10T13:04:48.807+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2024-04-10T13:04:48.810+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-my-group-id-1 unregistered
+2024-04-10T13:04:48.810+03:00  INFO 2746617 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : my-group-id: Consumer stopped
+2024-04-10T13:04:48.826+03:00  INFO 2746617 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T13:04:48.826+03:00  INFO 2746617 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
+2024-04-10T13:04:48.826+03:00  INFO 2746617 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2024-04-10T13:05:08.828+03:00  INFO 2747020 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 2747020 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
+2024-04-10T13:05:08.830+03:00  INFO 2747020 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2024-04-10T13:05:09.508+03:00  INFO 2747020 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2024-04-10T13:05:09.516+03:00  INFO 2747020 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2024-04-10T13:05:10.647+03:00  WARN 2747020 --- [demo] [main] afkaStreamsBinderConfigurationProperties : Ignoring provided value(s) for 'group.id'. Use spring.cloud.stream.default.group or spring.cloud.stream.binding.<name>.group to specify the group instead of group.id
+2024-04-10T13:05:10.688+03:00  INFO 2747020 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
+2024-04-10T13:05:10.833+03:00  INFO 2747020 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T13:05:10.834+03:00  INFO 2747020 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
+2024-04-10T13:05:10.835+03:00  INFO 2747020 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2024-04-10T13:05:10.867+03:00  INFO 2747020 --- [demo] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-my-group-id-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = my-group-id
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2024-04-10T13:05:11.006+03:00  INFO 2747020 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
+2024-04-10T13:05:11.008+03:00  INFO 2747020 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
+2024-04-10T13:05:11.008+03:00  INFO 2747020 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1712743511004
+2024-04-10T13:05:11.011+03:00  INFO 2747020 --- [demo] [main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Subscribed to topic(s): my-topic
+2024-04-10T13:05:11.039+03:00  INFO 2747020 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.496 seconds (process running for 3.444)
+2024-04-10T13:05:11.222+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T13:05:11.224+03:00  WARN 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T13:05:11.224+03:00  WARN 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T13:05:11.322+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T13:05:11.323+03:00  WARN 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T13:05:11.323+03:00  WARN 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T13:05:11.423+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T13:05:11.424+03:00  WARN 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T13:05:11.424+03:00  WARN 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T13:05:11.675+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T13:05:11.676+03:00  WARN 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T13:05:11.676+03:00  WARN 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T13:05:11.823+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T13:05:11.824+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T13:05:11.824+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Unsubscribed all topics or patterns and assigned partitions
+2024-04-10T13:05:11.825+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T13:05:11.826+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T13:05:11.828+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2024-04-10T13:05:11.829+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-10T13:05:11.829+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2024-04-10T13:05:11.833+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-my-group-id-1 unregistered
+2024-04-10T13:05:11.834+03:00  INFO 2747020 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : my-group-id: Consumer stopped
+2024-04-10T13:05:11.851+03:00  INFO 2747020 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T13:05:11.852+03:00  INFO 2747020 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
+2024-04-10T13:05:11.852+03:00  INFO 2747020 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'

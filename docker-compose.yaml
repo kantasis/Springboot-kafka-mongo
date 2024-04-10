@@ -13,19 +13,12 @@ services:
    #    depends_on:
    #       - tutorial_kafka_label
 
-
    tutorial_zookeeper_label:
       container_name: tutorial_zookeeper_container
       image: tutorial_zookeeper_image
       build: ./services/zookeeper
       ports:
          - 2181:2181
-         # - 22181:2181
-      environment:
-         ZOOKEEPER_CLIENT_PORT: 2181
-         ZOOKEEPER_TICK_TIME: 2000
-      volumes:
-         - ./shared/zookeeper:/shared
 
    tutorial_kafka_label:
       container_name: tutorial_kafka_container
@@ -33,21 +26,8 @@ services:
       build: ./services/kafka
       ports:
          - 9092:9092
-         # - 29092:29092
-      volumes:
-         - ./shared/kafka:/shared
       depends_on:
          - tutorial_zookeeper_label
-      environment:
-         # - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
-
-         KAFKA_BROKER_ID: 1
-         KAFKA_ZOOKEEPER_CONNECT: tutorial_zookeeper_container:2181
-         KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://tutorial_kafka_container:9092,PLAINTEXT_HOST://localhost:29092
-         KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-         KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-         KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-
 
    tutorial_python_label:
       container_name: tutorial_python_container
@@ -57,10 +37,6 @@ services:
          - ./shared/python:/shared
       environment:
          - GK_PWD=${PWD}
-
-
-
-
 
    # tutorial_kafka2_label:
    #    image: tutorial_kafka2_image

@@ -6,15 +6,11 @@ FROM confluentinc/cp-kafka:7.4.4
 # FROM wurstmeister/kafka:latest
 # FROM bitnami/kafka:latest
 
-# EXPOSE 9092
-# EXPOSE 80
-
-# # Start the ZooKeeper service
-# RUN nohup bin/zookeeper-server-start.sh config/zookeeper.properties &> /shared/zookeeper-server-start.log &
-# # Looks like java is needed
-
-# # Open up a new shell
-# # Start the Kafka broker service
-# RUN nohup bin/kafka-server-start.sh config/server.properties > /shared/kafka-server-start.log &
+ENV KAFKA_BROKER_ID 1
+ENV KAFKA_ZOOKEEPER_CONNECT tutorial_zookeeper_container:2181
+ENV KAFKA_ADVERTISED_LISTENERS PLAINTEXT://tutorial_kafka_container:9092,PLAINTEXT_HOST://localhost:29092
+ENV KAFKA_LISTENER_SECURITY_PROTOCOL_MAP PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+ENV KAFKA_INTER_BROKER_LISTENER_NAME PLAINTEXT
+ENV KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR 1
 
 # CMD ["tail", "-f", "/dev/null"]
