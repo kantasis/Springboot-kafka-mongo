@@ -146,7 +146,7 @@ producer = KafkaProducer(
    bootstrap_servers=bootstrapServer,
 )
 
-producer.send('my-topic', b'test')
+producer.send(topic_name, b'test')
 producer.flush()
 
 # print('Published message')

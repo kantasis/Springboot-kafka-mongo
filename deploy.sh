@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker-compose stop
+docker-compose stop || exit
 
 pushd services/spring/demo
 ./mvnw clean package || exit
