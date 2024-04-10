@@ -1,61 +1,13 @@
-2024-04-09T13:54:40.010+03:00  INFO 1904380 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 1904380 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
-2024-04-09T13:54:40.011+03:00  INFO 1904380 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2024-04-09T13:54:40.629+03:00  INFO 1904380 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2024-04-09T13:54:40.636+03:00  INFO 1904380 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2024-04-09T13:54:41.574+03:00  INFO 1904380 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
-2024-04-09T13:54:41.706+03:00  INFO 1904380 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T13:54:41.707+03:00  INFO 1904380 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
-2024-04-09T13:54:41.708+03:00  INFO 1904380 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2024-04-09T13:54:41.717+03:00  INFO 1904380 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 1.947 seconds (process running for 2.836)
-2024-04-09T13:54:42.413+03:00  INFO 1904380 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T13:54:42.413+03:00  INFO 1904380 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
-2024-04-09T13:54:42.414+03:00  INFO 1904380 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
-2024-04-09T13:55:15.635+03:00  INFO 1904982 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 1904982 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
-2024-04-09T13:55:15.638+03:00  INFO 1904982 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2024-04-09T13:55:16.407+03:00  INFO 1904982 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2024-04-09T13:55:16.425+03:00  INFO 1904982 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2024-04-09T13:55:17.452+03:00  INFO 1904982 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
-2024-04-09T13:55:17.608+03:00  INFO 1904982 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T13:55:17.609+03:00  INFO 1904982 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
-2024-04-09T13:55:17.610+03:00  INFO 1904982 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2024-04-09T13:55:17.619+03:00  INFO 1904982 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.261 seconds (process running for 3.115)
-2024-04-09T13:55:18.415+03:00  INFO 1904982 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T13:55:18.416+03:00  INFO 1904982 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
-2024-04-09T13:55:18.417+03:00  INFO 1904982 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
-2024-04-09T13:57:44.590+03:00  INFO 1907105 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 1907105 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
-2024-04-09T13:57:44.592+03:00  INFO 1907105 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2024-04-09T13:57:45.213+03:00  INFO 1907105 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2024-04-09T13:57:45.220+03:00  INFO 1907105 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2024-04-09T13:57:46.145+03:00  INFO 1907105 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
-2024-04-09T13:57:46.297+03:00  INFO 1907105 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T13:57:46.298+03:00  INFO 1907105 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
-2024-04-09T13:57:46.298+03:00  INFO 1907105 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2024-04-09T13:57:46.307+03:00  INFO 1907105 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 1.958 seconds (process running for 2.767)
-2024-04-09T13:57:46.974+03:00  INFO 1907105 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T13:57:46.974+03:00  INFO 1907105 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
-2024-04-09T13:57:46.974+03:00  INFO 1907105 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
-2024-04-09T14:00:58.456+03:00  INFO 1909581 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 1909581 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
-2024-04-09T14:00:58.458+03:00  INFO 1909581 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2024-04-09T14:00:59.035+03:00  INFO 1909581 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2024-04-09T14:00:59.043+03:00  INFO 1909581 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2024-04-09T14:00:59.932+03:00  INFO 1909581 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
-2024-04-09T14:01:00.048+03:00  INFO 1909581 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T14:01:00.048+03:00  INFO 1909581 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
-2024-04-09T14:01:00.049+03:00  INFO 1909581 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2024-04-09T14:01:00.059+03:00  INFO 1909581 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 1.835 seconds (process running for 2.671)
-2024-04-09T14:01:00.740+03:00  INFO 1909581 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T14:01:00.741+03:00  INFO 1909581 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
-2024-04-09T14:01:00.742+03:00  INFO 1909581 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
-2024-04-09T14:34:53.826+03:00  INFO 1930646 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 1930646 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
-2024-04-09T14:34:53.829+03:00  INFO 1930646 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2024-04-09T14:34:54.499+03:00  INFO 1930646 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2024-04-09T14:34:54.507+03:00  INFO 1930646 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2024-04-09T14:34:55.479+03:00  WARN 1930646 --- [demo] [main] afkaStreamsBinderConfigurationProperties : Ignoring provided value(s) for 'group.id'. Use spring.cloud.stream.default.group or spring.cloud.stream.binding.<name>.group to specify the group instead of group.id
-2024-04-09T14:34:55.517+03:00  INFO 1930646 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
-2024-04-09T14:34:55.653+03:00  INFO 1930646 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T14:34:55.653+03:00  INFO 1930646 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
-2024-04-09T14:34:55.654+03:00  INFO 1930646 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2024-04-09T14:34:55.682+03:00  INFO 1930646 --- [demo] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+2024-04-10T10:07:51.878+03:00  INFO 2606195 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 2606195 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
+2024-04-10T10:07:51.884+03:00  INFO 2606195 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2024-04-10T10:07:52.668+03:00  INFO 2606195 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2024-04-10T10:07:52.677+03:00  INFO 2606195 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2024-04-10T10:07:53.855+03:00  WARN 2606195 --- [demo] [main] afkaStreamsBinderConfigurationProperties : Ignoring provided value(s) for 'group.id'. Use spring.cloud.stream.default.group or spring.cloud.stream.binding.<name>.group to specify the group instead of group.id
+2024-04-10T10:07:53.909+03:00  INFO 2606195 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
+2024-04-10T10:07:54.056+03:00  INFO 2606195 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T10:07:54.057+03:00  INFO 2606195 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
+2024-04-10T10:07:54.058+03:00  INFO 2606195 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2024-04-10T10:07:54.106+03:00  INFO 2606195 --- [demo] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -149,46 +101,46 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2024-04-09T14:34:55.815+03:00  INFO 1930646 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
-2024-04-09T14:34:55.816+03:00  INFO 1930646 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
-2024-04-09T14:34:55.816+03:00  INFO 1930646 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1712662495814
-2024-04-09T14:34:55.819+03:00  INFO 1930646 --- [demo] [main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Subscribed to topic(s): my-topic
-2024-04-09T14:34:55.835+03:00  INFO 1930646 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.244 seconds (process running for 3.077)
-2024-04-09T14:34:56.004+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:34:56.006+03:00  WARN 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:34:56.007+03:00  WARN 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:34:56.105+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:34:56.106+03:00  WARN 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:34:56.107+03:00  WARN 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:34:56.256+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:34:56.257+03:00  WARN 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:34:56.258+03:00  WARN 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:34:56.458+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:34:56.459+03:00  WARN 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:34:56.459+03:00  WARN 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:34:56.582+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-04-09T14:34:56.582+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
-2024-04-09T14:34:56.582+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Unsubscribed all topics or patterns and assigned partitions
-2024-04-09T14:34:56.583+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-04-09T14:34:56.583+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
-2024-04-09T14:34:56.585+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
-2024-04-09T14:34:56.586+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2024-04-09T14:34:56.586+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
-2024-04-09T14:34:56.589+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-my-group-id-1 unregistered
-2024-04-09T14:34:56.590+03:00  INFO 1930646 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : my-group-id: Consumer stopped
-2024-04-09T14:34:56.607+03:00  INFO 1930646 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T14:34:56.607+03:00  INFO 1930646 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
-2024-04-09T14:34:56.608+03:00  INFO 1930646 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
-2024-04-09T14:41:25.368+03:00  INFO 1937808 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 1937808 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
-2024-04-09T14:41:25.370+03:00  INFO 1937808 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2024-04-09T14:41:26.023+03:00  INFO 1937808 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2024-04-09T14:41:26.029+03:00  INFO 1937808 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2024-04-09T14:41:26.896+03:00  WARN 1937808 --- [demo] [main] afkaStreamsBinderConfigurationProperties : Ignoring provided value(s) for 'group.id'. Use spring.cloud.stream.default.group or spring.cloud.stream.binding.<name>.group to specify the group instead of group.id
-2024-04-09T14:41:26.930+03:00  INFO 1937808 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
-2024-04-09T14:41:27.051+03:00  INFO 1937808 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T14:41:27.051+03:00  INFO 1937808 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
-2024-04-09T14:41:27.052+03:00  INFO 1937808 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2024-04-09T14:41:27.094+03:00  INFO 1937808 --- [demo] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+2024-04-10T10:07:54.331+03:00  INFO 2606195 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
+2024-04-10T10:07:54.333+03:00  INFO 2606195 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
+2024-04-10T10:07:54.333+03:00  INFO 2606195 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1712732874330
+2024-04-10T10:07:54.336+03:00  INFO 2606195 --- [demo] [main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Subscribed to topic(s): my-topic
+2024-04-10T10:07:54.356+03:00  INFO 2606195 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.768 seconds (process running for 3.738)
+2024-04-10T10:07:54.618+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:07:54.621+03:00  WARN 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:07:54.622+03:00  WARN 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:07:54.719+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:07:54.719+03:00  WARN 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:07:54.720+03:00  WARN 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:07:54.820+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:07:54.821+03:00  WARN 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:07:54.821+03:00  WARN 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:07:55.022+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:07:55.022+03:00  WARN 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:07:55.022+03:00  WARN 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:07:55.180+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T10:07:55.180+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T10:07:55.181+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Unsubscribed all topics or patterns and assigned partitions
+2024-04-10T10:07:55.182+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T10:07:55.183+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T10:07:55.186+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2024-04-10T10:07:55.187+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-10T10:07:55.187+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2024-04-10T10:07:55.191+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-my-group-id-1 unregistered
+2024-04-10T10:07:55.192+03:00  INFO 2606195 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : my-group-id: Consumer stopped
+2024-04-10T10:07:55.217+03:00  INFO 2606195 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T10:07:55.217+03:00  INFO 2606195 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
+2024-04-10T10:07:55.218+03:00  INFO 2606195 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2024-04-10T10:14:02.158+03:00  INFO 2613331 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 2613331 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
+2024-04-10T10:14:02.160+03:00  INFO 2613331 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2024-04-10T10:14:02.962+03:00  INFO 2613331 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2024-04-10T10:14:02.970+03:00  INFO 2613331 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2024-04-10T10:14:04.025+03:00  WARN 2613331 --- [demo] [main] afkaStreamsBinderConfigurationProperties : Ignoring provided value(s) for 'group.id'. Use spring.cloud.stream.default.group or spring.cloud.stream.binding.<name>.group to specify the group instead of group.id
+2024-04-10T10:14:04.063+03:00  INFO 2613331 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
+2024-04-10T10:14:04.207+03:00  INFO 2613331 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T10:14:04.208+03:00  INFO 2613331 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
+2024-04-10T10:14:04.209+03:00  INFO 2613331 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2024-04-10T10:14:04.240+03:00  INFO 2613331 --- [demo] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -282,46 +234,46 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2024-04-09T14:41:27.222+03:00  INFO 1937808 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
-2024-04-09T14:41:27.223+03:00  INFO 1937808 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
-2024-04-09T14:41:27.224+03:00  INFO 1937808 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1712662887220
-2024-04-09T14:41:27.226+03:00  INFO 1937808 --- [demo] [main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Subscribed to topic(s): my-topic
-2024-04-09T14:41:27.249+03:00  INFO 1937808 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.13 seconds (process running for 2.889)
-2024-04-09T14:41:27.434+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:41:27.436+03:00  WARN 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:41:27.436+03:00  WARN 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:41:27.535+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:41:27.536+03:00  WARN 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:41:27.536+03:00  WARN 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:41:27.686+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:41:27.687+03:00  WARN 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:41:27.687+03:00  WARN 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:41:27.938+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:41:27.938+03:00  WARN 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:41:27.938+03:00  WARN 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:41:27.946+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-04-09T14:41:27.947+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
-2024-04-09T14:41:27.947+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Unsubscribed all topics or patterns and assigned partitions
-2024-04-09T14:41:27.948+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-04-09T14:41:27.948+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
-2024-04-09T14:41:27.950+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
-2024-04-09T14:41:27.950+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2024-04-09T14:41:27.951+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
-2024-04-09T14:41:27.953+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-my-group-id-1 unregistered
-2024-04-09T14:41:27.954+03:00  INFO 1937808 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : my-group-id: Consumer stopped
-2024-04-09T14:41:27.968+03:00  INFO 1937808 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T14:41:27.969+03:00  INFO 1937808 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
-2024-04-09T14:41:27.969+03:00  INFO 1937808 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
-2024-04-09T14:46:20.671+03:00  INFO 1943124 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 1943124 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
-2024-04-09T14:46:20.673+03:00  INFO 1943124 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2024-04-09T14:46:21.387+03:00  INFO 1943124 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2024-04-09T14:46:21.394+03:00  INFO 1943124 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2024-04-09T14:46:22.357+03:00  WARN 1943124 --- [demo] [main] afkaStreamsBinderConfigurationProperties : Ignoring provided value(s) for 'group.id'. Use spring.cloud.stream.default.group or spring.cloud.stream.binding.<name>.group to specify the group instead of group.id
-2024-04-09T14:46:22.397+03:00  INFO 1943124 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
-2024-04-09T14:46:22.534+03:00  INFO 1943124 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T14:46:22.534+03:00  INFO 1943124 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
-2024-04-09T14:46:22.535+03:00  INFO 1943124 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2024-04-09T14:46:22.568+03:00  INFO 1943124 --- [demo] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+2024-04-10T10:14:04.379+03:00  INFO 2613331 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
+2024-04-10T10:14:04.380+03:00  INFO 2613331 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
+2024-04-10T10:14:04.381+03:00  INFO 2613331 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1712733244378
+2024-04-10T10:14:04.384+03:00  INFO 2613331 --- [demo] [main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Subscribed to topic(s): my-topic
+2024-04-10T10:14:04.403+03:00  INFO 2613331 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.548 seconds (process running for 3.523)
+2024-04-10T10:14:04.577+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:14:04.578+03:00  WARN 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:14:04.579+03:00  WARN 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:14:04.678+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:14:04.679+03:00  WARN 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:14:04.679+03:00  WARN 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:14:04.779+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:14:04.779+03:00  WARN 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:14:04.779+03:00  WARN 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:14:05.030+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:14:05.031+03:00  WARN 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:14:05.031+03:00  WARN 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:14:05.165+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T10:14:05.166+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T10:14:05.166+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Unsubscribed all topics or patterns and assigned partitions
+2024-04-10T10:14:05.167+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T10:14:05.167+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T10:14:05.169+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2024-04-10T10:14:05.170+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-10T10:14:05.170+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2024-04-10T10:14:05.173+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-my-group-id-1 unregistered
+2024-04-10T10:14:05.174+03:00  INFO 2613331 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : my-group-id: Consumer stopped
+2024-04-10T10:14:05.190+03:00  INFO 2613331 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T10:14:05.191+03:00  INFO 2613331 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
+2024-04-10T10:14:05.191+03:00  INFO 2613331 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2024-04-10T10:14:51.422+03:00  INFO 2614275 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 2614275 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
+2024-04-10T10:14:51.425+03:00  INFO 2614275 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2024-04-10T10:14:52.120+03:00  INFO 2614275 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2024-04-10T10:14:52.128+03:00  INFO 2614275 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2024-04-10T10:14:53.069+03:00  WARN 2614275 --- [demo] [main] afkaStreamsBinderConfigurationProperties : Ignoring provided value(s) for 'group.id'. Use spring.cloud.stream.default.group or spring.cloud.stream.binding.<name>.group to specify the group instead of group.id
+2024-04-10T10:14:53.105+03:00  INFO 2614275 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
+2024-04-10T10:14:53.239+03:00  INFO 2614275 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T10:14:53.240+03:00  INFO 2614275 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
+2024-04-10T10:14:53.241+03:00  INFO 2614275 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2024-04-10T10:14:53.272+03:00  INFO 2614275 --- [demo] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -415,166 +367,33 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2024-04-09T14:46:22.685+03:00  INFO 1943124 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
-2024-04-09T14:46:22.686+03:00  INFO 1943124 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
-2024-04-09T14:46:22.687+03:00  INFO 1943124 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1712663182684
-2024-04-09T14:46:22.690+03:00  INFO 1943124 --- [demo] [main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Subscribed to topic(s): my-topic
-2024-04-09T14:46:22.708+03:00  INFO 1943124 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.307 seconds (process running for 3.165)
-2024-04-09T14:46:22.859+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:46:22.861+03:00  WARN 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:46:22.861+03:00  WARN 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:46:22.960+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:46:22.960+03:00  WARN 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:46:22.961+03:00  WARN 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:46:23.111+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:46:23.112+03:00  WARN 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:46:23.112+03:00  WARN 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:46:23.313+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:46:23.314+03:00  WARN 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:46:23.314+03:00  WARN 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:46:23.499+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-04-09T14:46:23.500+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
-2024-04-09T14:46:23.500+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Unsubscribed all topics or patterns and assigned partitions
-2024-04-09T14:46:23.501+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-04-09T14:46:23.502+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
-2024-04-09T14:46:23.504+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
-2024-04-09T14:46:23.505+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2024-04-09T14:46:23.505+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
-2024-04-09T14:46:23.509+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-my-group-id-1 unregistered
-2024-04-09T14:46:23.510+03:00  INFO 1943124 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : my-group-id: Consumer stopped
-2024-04-09T14:46:23.530+03:00  INFO 1943124 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T14:46:23.531+03:00  INFO 1943124 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
-2024-04-09T14:46:23.531+03:00  INFO 1943124 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
-2024-04-09T14:49:21.016+03:00  INFO 1946133 --- [demo] [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.10 with PID 1946133 (started by george in /home/george/workspace/tutorials/spring-kafka/services/spring/demo)
-2024-04-09T14:49:21.018+03:00  INFO 1946133 --- [demo] [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2024-04-09T14:49:21.727+03:00  INFO 1946133 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2024-04-09T14:49:21.734+03:00  INFO 1946133 --- [demo] [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2024-04-09T14:49:22.699+03:00  WARN 1946133 --- [demo] [main] afkaStreamsBinderConfigurationProperties : Ignoring provided value(s) for 'group.id'. Use spring.cloud.stream.default.group or spring.cloud.stream.binding.<name>.group to specify the group instead of group.id
-2024-04-09T14:49:22.736+03:00  INFO 1946133 --- [demo] [main] StreamsVersionAgnosticTopologyInfoFacade : Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
-2024-04-09T14:49:22.871+03:00  INFO 1946133 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T14:49:22.871+03:00  INFO 1946133 --- [demo] [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 1 subscriber(s).
-2024-04-09T14:49:22.872+03:00  INFO 1946133 --- [demo] [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2024-04-09T14:49:22.901+03:00  INFO 1946133 --- [demo] [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
-	allow.auto.create.topics = true
-	auto.commit.interval.ms = 5000
-	auto.include.jmx.reporter = true
-	auto.offset.reset = latest
-	bootstrap.servers = [localhost:9092]
-	check.crcs = true
-	client.dns.lookup = use_all_dns_ips
-	client.id = consumer-my-group-id-1
-	client.rack = 
-	connections.max.idle.ms = 540000
-	default.api.timeout.ms = 60000
-	enable.auto.commit = false
-	exclude.internal.topics = true
-	fetch.max.bytes = 52428800
-	fetch.max.wait.ms = 500
-	fetch.min.bytes = 1
-	group.id = my-group-id
-	group.instance.id = null
-	heartbeat.interval.ms = 3000
-	interceptor.classes = []
-	internal.leave.group.on.close = true
-	internal.throw.on.fetch.stable.offset.unsupported = false
-	isolation.level = read_uncommitted
-	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
-	max.partition.fetch.bytes = 1048576
-	max.poll.interval.ms = 300000
-	max.poll.records = 500
-	metadata.max.age.ms = 300000
-	metric.reporters = []
-	metrics.num.samples = 2
-	metrics.recording.level = INFO
-	metrics.sample.window.ms = 30000
-	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
-	receive.buffer.bytes = 65536
-	reconnect.backoff.max.ms = 1000
-	reconnect.backoff.ms = 50
-	request.timeout.ms = 30000
-	retry.backoff.ms = 100
-	sasl.client.callback.handler.class = null
-	sasl.jaas.config = null
-	sasl.kerberos.kinit.cmd = /usr/bin/kinit
-	sasl.kerberos.min.time.before.relogin = 60000
-	sasl.kerberos.service.name = null
-	sasl.kerberos.ticket.renew.jitter = 0.05
-	sasl.kerberos.ticket.renew.window.factor = 0.8
-	sasl.login.callback.handler.class = null
-	sasl.login.class = null
-	sasl.login.connect.timeout.ms = null
-	sasl.login.read.timeout.ms = null
-	sasl.login.refresh.buffer.seconds = 300
-	sasl.login.refresh.min.period.seconds = 60
-	sasl.login.refresh.window.factor = 0.8
-	sasl.login.refresh.window.jitter = 0.05
-	sasl.login.retry.backoff.max.ms = 10000
-	sasl.login.retry.backoff.ms = 100
-	sasl.mechanism = GSSAPI
-	sasl.oauthbearer.clock.skew.seconds = 30
-	sasl.oauthbearer.expected.audience = null
-	sasl.oauthbearer.expected.issuer = null
-	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
-	sasl.oauthbearer.jwks.endpoint.url = null
-	sasl.oauthbearer.scope.claim.name = scope
-	sasl.oauthbearer.sub.claim.name = sub
-	sasl.oauthbearer.token.endpoint.url = null
-	security.protocol = PLAINTEXT
-	security.providers = null
-	send.buffer.bytes = 131072
-	session.timeout.ms = 45000
-	socket.connection.setup.timeout.max.ms = 30000
-	socket.connection.setup.timeout.ms = 10000
-	ssl.cipher.suites = null
-	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
-	ssl.endpoint.identification.algorithm = https
-	ssl.engine.factory.class = null
-	ssl.key.password = null
-	ssl.keymanager.algorithm = SunX509
-	ssl.keystore.certificate.chain = null
-	ssl.keystore.key = null
-	ssl.keystore.location = null
-	ssl.keystore.password = null
-	ssl.keystore.type = JKS
-	ssl.protocol = TLSv1.3
-	ssl.provider = null
-	ssl.secure.random.implementation = null
-	ssl.trustmanager.algorithm = PKIX
-	ssl.truststore.certificates = null
-	ssl.truststore.location = null
-	ssl.truststore.password = null
-	ssl.truststore.type = JKS
-	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
-
-2024-04-09T14:49:23.027+03:00  INFO 1946133 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
-2024-04-09T14:49:23.028+03:00  INFO 1946133 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
-2024-04-09T14:49:23.028+03:00  INFO 1946133 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1712663363025
-2024-04-09T14:49:23.031+03:00  INFO 1946133 --- [demo] [main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Subscribed to topic(s): my-topic
-2024-04-09T14:49:23.049+03:00  INFO 1946133 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.276 seconds (process running for 3.129)
-2024-04-09T14:49:23.198+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:49:23.201+03:00  WARN 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:49:23.202+03:00  WARN 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:49:23.299+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:49:23.299+03:00  WARN 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:49:23.300+03:00  WARN 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:49:23.450+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:49:23.450+03:00  WARN 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:49:23.451+03:00  WARN 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:49:23.652+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
-2024-04-09T14:49:23.652+03:00  WARN 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
-2024-04-09T14:49:23.653+03:00  WARN 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2024-04-09T14:49:23.751+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-04-09T14:49:23.751+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
-2024-04-09T14:49:23.752+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Unsubscribed all topics or patterns and assigned partitions
-2024-04-09T14:49:23.753+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
-2024-04-09T14:49:23.753+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
-2024-04-09T14:49:23.756+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
-2024-04-09T14:49:23.756+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2024-04-09T14:49:23.756+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
-2024-04-09T14:49:23.760+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-my-group-id-1 unregistered
-2024-04-09T14:49:23.762+03:00  INFO 1946133 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : my-group-id: Consumer stopped
-2024-04-09T14:49:23.780+03:00  INFO 1946133 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2024-04-09T14:49:23.780+03:00  INFO 1946133 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
-2024-04-09T14:49:23.781+03:00  INFO 1946133 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2024-04-10T10:14:53.389+03:00  INFO 2614275 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.1
+2024-04-10T10:14:53.390+03:00  INFO 2614275 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 5e3c2b738d253ff5
+2024-04-10T10:14:53.391+03:00  INFO 2614275 --- [demo] [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1712733293380
+2024-04-10T10:14:53.393+03:00  INFO 2614275 --- [demo] [main] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Subscribed to topic(s): my-topic
+2024-04-10T10:14:53.410+03:00  INFO 2614275 --- [demo] [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.226 seconds (process running for 3.073)
+2024-04-10T10:14:53.591+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:14:53.593+03:00  WARN 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:14:53.594+03:00  WARN 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:14:53.693+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:14:53.693+03:00  WARN 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:14:53.694+03:00  WARN 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:14:53.843+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:14:53.843+03:00  WARN 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:14:53.844+03:00  WARN 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:14:54.095+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Node -1 disconnected.
+2024-04-10T10:14:54.095+03:00  WARN 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2024-04-10T10:14:54.095+03:00  WARN 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2024-04-10T10:14:54.120+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T10:14:54.121+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T10:14:54.121+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] fkaConsumerFactory$ExtendedKafkaConsumer : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Unsubscribed all topics or patterns and assigned partitions
+2024-04-10T10:14:54.122+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-04-10T10:14:54.123+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-my-group-id-1, groupId=my-group-id] Request joining group due to: consumer pro-actively leaving the group
+2024-04-10T10:14:54.125+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2024-04-10T10:14:54.125+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-04-10T10:14:54.125+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2024-04-10T10:14:54.128+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-my-group-id-1 unregistered
+2024-04-10T10:14:54.129+03:00  INFO 2614275 --- [demo] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : my-group-id: Consumer stopped
+2024-04-10T10:14:54.145+03:00  INFO 2614275 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2024-04-10T10:14:54.145+03:00  INFO 2614275 --- [demo] [SpringApplicationShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'demo.errorChannel' has 0 subscriber(s).
+2024-04-10T10:14:54.146+03:00  INFO 2614275 --- [demo] [SpringApplicationShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'

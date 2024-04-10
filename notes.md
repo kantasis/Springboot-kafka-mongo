@@ -57,9 +57,80 @@ docker exec -it \
       --bootstrap-server localhost:9092 \
       --topic "my-topic" \
 
+# Secondary kafka, consume
+docker exec -it \
+   tutorial_kafka2_container \
+   /opt/kafka/bin/kafka-console-consumer.sh \
+      --bootstrap-server 192.168.32.2:9092 \
+      --topic "my-topic" \
+      --from-beginning
 
+# This one receives only its own messages
 
+# Secondary produce
+docker exec -it \
+   tutorial_kafka2_container \
+   /opt/kafka/bin/kafka-console-producer.sh \
+      --bootstrap-server tutorial_kafka_container:9092 \
+      --topic "my-topic"
+# This one sends messages locally
 
 
 
 ```
+
+
+
+```python
+
+from kafka import KafkaProducer
+
+producer = KafkaProducer(
+   bootstrap_servers='192.168.32.2:9092',
+   # ssl_cafile='cluster-ca-certificate.pem',
+   # security_protocol='SASL_SSL',
+   # sasl_mechanism='SCRAM-SHA-256',
+   # sasl_plain_username='[USER NAME]' ,
+   # sasl_plain_password='[USER PASSWORD]',
+)
+
+
+producer.send('my-topic', b'test')
+producer.flush()
+print('Published message')
+
+
+# ----
+
+from kafka import KafkaConsumer
+
+consumer = KafkaConsumer(
+   'my-topic',
+   bootstrap_servers='192.168.32.2:9092',
+   # ssl_cafile='cluster-ca-certificate.pem',
+   # security_protocol='SASL_SSL',
+   # sasl_mechanism='SCRAM-SHA-256',
+   # sasl_plain_username='[USER NAME]' ,
+   # sasl_plain_password='[USER PASSWORD]',
+   # auto_offset_reset='earliest',
+   group_id='my-group'
+)
+
+
+try:
+   for message in consumer:
+      if message:
+         print(f"Received message: {message.value.decode('utf-8')}")
+except Exception as e:
+    print(f"An exception occurred: {e}")
+finally:
+    consumer.close()
+
+```
+
+After the python container is deployed
+try to connect with kafka through python from different containers
+If that does not work, consider using zookeeper?./
+
+
+

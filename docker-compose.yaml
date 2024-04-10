@@ -1,15 +1,17 @@
 version: "3"
 services:
 
-   tutorial_spring_label:
-      image: tutorial_spring_image
-      build: ./services/spring
-      container_name: tutorial_spring_container
-      ports:
-         - 8080:8080
-      volumes: 
-         - ./shared/tomcat-logs:/tomcat/logs
-         - ./shared/spring-logs:/spring/logs
+   # tutorial_spring_label:
+   #    image: tutorial_spring_image
+   #    build: ./services/spring
+   #    container_name: tutorial_spring_container
+   #    ports:
+   #       - 8080:8080
+   #    volumes: 
+   #       - ./shared/tomcat-logs:/tomcat/logs
+   #       - ./shared/spring-logs:/spring/logs
+   #    depends_on:
+   #       - tutorial_kafka_label
 
    tutorial_kafka_label:
       image: tutorial_kafka_image
@@ -19,5 +21,21 @@ services:
          - 9092:9092
       volumes:
          - ./shared/kafka:/shared
+
+   tutorial_python_label:
+      image: tutorial_python_image
+      build: ./services/python
+      container_name: tutorial_python_container
+      volumes:
+         - ./shared/python:/shared
+
+   # tutorial_kafka2_label:
+   #    image: tutorial_kafka2_image
+   #    build: ./services/kafka
+   #    container_name: tutorial_kafka2_container
+   #    ports:
+   #       - 9093:9092
+   #    volumes:
+   #       - ./shared/kafka:/shared
 
 
