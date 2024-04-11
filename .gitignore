@@ -1,3 +1,6 @@
 shared/
 .vscode/
 services/spring/demo/target/
+*.log
+*.log.*.gz
+logs/
