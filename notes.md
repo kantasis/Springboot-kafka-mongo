@@ -146,7 +146,7 @@ producer = KafkaProducer(
    bootstrap_servers=bootstrapServer,
 )
 
-producer.send(topic_name, b'test')
+producer.send(topic_name, b'ASDFASDFASDF')
 producer.flush()
 
 # print('Published message')
@@ -156,6 +156,8 @@ consumer = KafkaConsumer(
    bootstrap_servers=bootstrapServer,
    group_id='my-group'
 )
+
+consumer.topics()
 
 
 try:
@@ -193,10 +195,28 @@ docker exec -it \
       --topic "my-topic"
 
 # Consumer
+
 docker exec -it \
    tutorial_kafka_container \
    kafka-console-producer \
       --bootstrap-server tutorial_kafka_container:9092 \
       --topic "my-topic"
 
+
+
+
 ```
+
+
+KAFKA_LISTENERS: 
+   EXTERNAL_SAME_HOST://:29092
+   INTERNAL://:9092
+KAFKA_ADVERTISED_LISTENERS: 
+   EXTERNAL_SAME_HOST://localhost:29092
+   INTERNAL://kafka:9092
+KAFKA_LISTENER_SECURITY_PROTOCOL_MAP:
+   EXTERNAL_SAME_HOST:PLAINTEXT
+   INTERNAL:PLAINTEXT
+
+http://localhost:8080/send?message=1313131313
+

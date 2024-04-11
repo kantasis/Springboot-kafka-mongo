@@ -7,5 +7,6 @@ RUN apt update
 RUN pip install kafka-python
 RUN apt install netcat-traditional
 
+COPY *.py /scripts/
 
 CMD ["tail", "-f", "/dev/null"]

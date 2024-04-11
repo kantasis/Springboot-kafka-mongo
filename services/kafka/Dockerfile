@@ -6,6 +6,8 @@ FROM confluentinc/cp-kafka:7.4.4
 # FROM wurstmeister/kafka:latest
 # FROM bitnami/kafka:latest
 
+EXPOSE 9092
+
 ENV KAFKA_BROKER_ID 1
 ENV KAFKA_ZOOKEEPER_CONNECT tutorial_zookeeper_container:2181
 ENV KAFKA_ADVERTISED_LISTENERS PLAINTEXT://tutorial_kafka_container:9092,PLAINTEXT_HOST://localhost:29092

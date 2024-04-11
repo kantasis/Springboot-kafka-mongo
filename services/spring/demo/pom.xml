@@ -18,18 +18,42 @@
       <spring-cloud.version>2023.0.1</spring-cloud.version>
    </properties>
    <dependencies>
+
       <dependency>
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-web</artifactId>
       </dependency>
 
       <dependency>
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-webflux</artifactId>
+         <groupId>org.springframework.kafka</groupId>
+         <artifactId>spring-kafka</artifactId>
+         <version>3.1.2</version>
       </dependency>
+
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-test</artifactId>
+         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.springframework.kafka</groupId>
+         <artifactId>spring-kafka-test</artifactId>
+         <scope>test</scope>
+      </dependency>
+<!-- 
+      <dependency>
+         <groupId>org.springframework.kafka</groupId>
+         <artifactId>spring-kafka</artifactId>
+      </dependency>
+
       <dependency>
          <groupId>org.apache.kafka</groupId>
          <artifactId>kafka-streams</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-webflux</artifactId>
       </dependency>
       <dependency>
          <groupId>org.springframework.cloud</groupId>
@@ -44,19 +68,9 @@
          <artifactId>spring-cloud-stream-binder-kafka-streams</artifactId>
       </dependency>
       <dependency>
-         <groupId>org.springframework.kafka</groupId>
-         <artifactId>spring-kafka</artifactId>
-      </dependency>
-
-      <dependency>
          <groupId>org.projectlombok</groupId>
          <artifactId>lombok</artifactId>
          <optional>true</optional>
-      </dependency>
-      <dependency>
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-test</artifactId>
-         <scope>test</scope>
       </dependency>
       <dependency>
          <groupId>io.projectreactor</groupId>
@@ -68,13 +82,10 @@
          <artifactId>spring-cloud-stream-test-binder</artifactId>
          <scope>test</scope>
       </dependency>
-      <dependency>
-         <groupId>org.springframework.kafka</groupId>
-         <artifactId>spring-kafka-test</artifactId>
-         <scope>test</scope>
-      </dependency>
+
+-->
    </dependencies>
-   <dependencyManagement>
+   <!-- <dependencyManagement>
       <dependencies>
          <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -84,22 +95,17 @@
             <scope>import</scope>
          </dependency>
       </dependencies>
-   </dependencyManagement>
+   </dependencyManagement> -->
 
    <build>
       <plugins>
          <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
-            <configuration>
-               <excludes>
-                  <exclude>
-                     <groupId>org.projectlombok</groupId>
-                     <artifactId>lombok</artifactId>
-                  </exclude>
-               </excludes>
-            </configuration>
-         </plugin>
+            <!-- <configuration>
+               <mainClass>com.baeldung.spring.kafka.KafkaApplication</mainClass>
+            </configuration> -->
+         </plugin>       
       </plugins>
    </build>
 
