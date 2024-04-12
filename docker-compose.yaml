@@ -12,6 +12,7 @@ services:
          - MONGO_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
          - MONGO_HOST=${MONGO_HOST}
          - MONGO_PORT=${MONGO_PORT}
+         - SPRING_PORT=${SPRING_PORT}
       ports:
          - 8080:8080
       volumes: 
@@ -19,6 +20,7 @@ services:
          - ./shared/spring-logs:/spring/logs
       depends_on:
          - tutorial_kafka_label
+         - tutorial_mongo_label
 
    tutorial_zookeeper_label:
       container_name: tutorial_zookeeper_container
@@ -52,7 +54,7 @@ services:
          context: ./services/mongodb
          args:
          - MONGO_USERNAME=${MONGO_ROOT_USERNAME}
-         - MONGO_PASSWORD=${MONGO_ROOT_USERNAME}
+         - MONGO_PASSWORD=${MONGO_ROOT_PASSWORD}
 
       # ports:
       #    - 27017:27017
