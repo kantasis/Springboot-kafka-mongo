@@ -8,15 +8,35 @@ docker exec -it \
       --username rootuser \
       --password rootpass
 
+
+docker exec -it \
+   tutorial_kafka_container \
+   kafka-topics \
+      --bootstrap-server localhost:9092 \
+      --list
+
+docker logs -f tutorial_spring_container
 # 66191a1a5f89af0846895208
 # mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.2
+
+docker exec -i \
+   tutorial_mongo_container \
+   mongosh \
+      --username rootuser \
+      --password rootpass \
+<<EOF
+use datalake_db;
+db.dataModel.find();
+EOF
+
 ```
 
 ```js
-
+use datalake_db;
+show collections;
+db.dataModel.find();
 ```
-
-
+echo 'show databases' | 
 
 
 

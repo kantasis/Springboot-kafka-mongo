@@ -26,12 +26,12 @@ public class DemoApplication {
       }
    }
 
-   @Bean
-   CommandLineRunner runner(DataRepository dataRepository){
-      return args ->{
-         DataModel dataModel = new DataModel("NEW DATA");
-         dataRepository.insert(dataModel);
-      };
-   }
+   // @Bean
+   // CommandLineRunner runner(DataRepository dataRepository){
+   //    return args ->{
+   //       DataModel dataModel = new DataModel("NEW DATA");
+   //       dataRepository.insert(dataModel);
+   //    };
+   // }
 
 }
