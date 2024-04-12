@@ -1,4 +1,4 @@
-package com.example.demo.producer;
+package com.example.demo.kafka;
 
 import java.util.concurrent.CompletableFuture;
 

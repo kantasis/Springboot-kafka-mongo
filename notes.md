@@ -7,9 +7,17 @@ docker exec -it \
    mongosh \
       --username rootuser \
       --password rootpass
+
+# 66191a1a5f89af0846895208
+# mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.2
 ```
 
-mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.2
+```js
+
+```
+
+
+
 
 
 # kafka
