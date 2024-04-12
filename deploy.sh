@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. .private/environment.sh
+
 docker-compose stop || exit
 
 pushd services/spring/demo

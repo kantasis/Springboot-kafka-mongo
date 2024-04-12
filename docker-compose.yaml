@@ -38,13 +38,16 @@ services:
       environment:
          - GK_PWD=${PWD}
 
-   # tutorial_kafka2_label:
-   #    image: tutorial_kafka2_image
-   #    build: ./services/kafka
-   #    container_name: tutorial_kafka2_container
-   #    ports:
-   #       - 9093:9092
-   #    volumes:
-   #       - ./shared/kafka:/shared
+   tutorial_mongo_label:
+      container_name: tutorial_mongo_container
+      image: tutorial_mongo_image
+      build:
+         context: ./services/mongodb
+         args:
+         - MONGO_USERNAME=${MONGO_ROOT_USERNAME}
+         - MONGO_PASSWORD=${MONGO_ROOT_USERNAME}
 
-
+      # ports:
+      #    - 27017:27017
+      # volumes: 
+      #    - ./shared/mongo:/data/db

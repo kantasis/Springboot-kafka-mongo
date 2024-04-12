@@ -1,4 +1,5 @@
 shared/
+.private/
 .vscode/
 services/spring/demo/target/
 *.log

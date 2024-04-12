@@ -1,5 +1,20 @@
+# mongo 
+https://www.baeldung.com/spring-data-mongodb-tutorial
+
+```bash
+docker exec -it \
+   tutorial_mongo_container \
+   mongosh \
+      --username rootuser \
+      --password rootpass
+```
+
+mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.2
 
 
+
+
+# kafka
 application.properties
 ```
 # Enable tomcat access logs
@@ -220,3 +235,11 @@ KAFKA_LISTENER_SECURITY_PROTOCOL_MAP:
 
 http://localhost:8080/send?message=1313131313
 
+
+```xml
+<dependency>	
+    <groupId>org.springframework.data</groupId>	
+    <artifactId>spring-boot-starter-data-mongodb</artifactId>	
+    <version>2.7.11</version>	
+</dependency>
+```
