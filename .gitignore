@@ -2,6 +2,6 @@ shared/
 .private/
 .vscode/
 services/spring/demo/target/
-*.log
-*.log.*.gz
+services/spring/demo/myapp.log
+services/spring/demo/*.log.*.gz
 logs/

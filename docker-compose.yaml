@@ -3,8 +3,15 @@ services:
 
    tutorial_spring_label:
       image: tutorial_spring_image
-      build: ./services/spring
       container_name: tutorial_spring_container
+      build:
+         context: ./services/spring
+         args:
+         - KAFKA_BOOTSTRAP_SERVER=${KAFKA_BOOTSTRAP_SERVER}
+         - MONGO_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
+         - MONGO_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+         - MONGO_HOST=${MONGO_HOST}
+         - MONGO_PORT=${MONGO_PORT}
       ports:
          - 8080:8080
       volumes: 
