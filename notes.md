@@ -1,3 +1,9 @@
+# TODO:
+mongodb persistence
+network naming
+post request
+request the data
+
 # mongo 
 https://www.baeldung.com/spring-data-mongodb-tutorial
 

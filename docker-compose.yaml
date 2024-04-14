@@ -38,14 +38,14 @@ services:
       depends_on:
          - tutorial_zookeeper_label
 
-   tutorial_python_label:
-      container_name: tutorial_python_container
-      image: tutorial_python_image
-      build: ./services/python
-      volumes:
-         - ./shared/python:/shared
-      environment:
-         - GK_PWD=${PWD}
+   # tutorial_python_label:
+   #    container_name: tutorial_python_container
+   #    image: tutorial_python_image
+   #    build: ./services/python
+   #    volumes:
+   #       - ./shared/python:/shared
+   #    environment:
+   #       - GK_PWD=${PWD}
 
    tutorial_mongo_label:
       container_name: tutorial_mongo_container
@@ -55,8 +55,11 @@ services:
          args:
          - MONGO_USERNAME=${MONGO_ROOT_USERNAME}
          - MONGO_PASSWORD=${MONGO_ROOT_PASSWORD}
-
+      volumes: 
+         - database:/data/db
+      #    - ./shared/mongo:/data/db
       # ports:
       #    - 27017:27017
-      # volumes: 
-      #    - ./shared/mongo:/data/db
+
+   volumes:
+      database: {}
