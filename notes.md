@@ -1,8 +1,51 @@
 # TODO:
+Authentication
 mongodb persistence
 network naming
 post request
 request the data
+
+# Auth
+https://www.bezkoder.com/spring-boot-jwt-auth-mongodb/
+
+Roles:
+   admin
+   moderator
+   user
+
+So we’re gonna provide APIs as following table:
+
+Methods	Urls	Actions
+POST	/api/auth/signup	signup new account
+POST	/api/auth/signin	login an account
+GET	/api/test/all	retrieve public content
+GET	/api/test/user	access User’s content
+GET	/api/test/mod	access Moderator’s content
+GET	/api/test/admin	access Admin’s content
+
+
+- Spring Security will manage cors, csrf, session, rules for protected resources, authentication & authorization along with exception handler.
+- The database we will use is MongoDB which can be accessed by the help of Spring Data MongoDB.
+
+```bash
+docker exec -i \
+   tutorial_mongo_container \
+   mongosh \
+      --username rootuser \
+      --password rootpass \
+<<EOF
+use datalake_db;
+db.roles.insertMany([
+   { name: "ROLE_USER" },
+   { name: "ROLE_MODERATOR" },
+   { name: "ROLE_ADMIN" },
+])
+EOF
+
+docker logs -f tutorial_spring_container
+
+
+```
 
 # mongo 
 https://www.baeldung.com/spring-data-mongodb-tutorial

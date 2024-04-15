@@ -56,10 +56,10 @@ services:
          - MONGO_USERNAME=${MONGO_ROOT_USERNAME}
          - MONGO_PASSWORD=${MONGO_ROOT_PASSWORD}
       volumes: 
-         - database:/data/db
+         - tutorial_mongo_volume:/data/db
       #    - ./shared/mongo:/data/db
       # ports:
       #    - 27017:27017
 
-   volumes:
-      database: {}
+volumes:
+   tutorial_mongo_volume: {}
