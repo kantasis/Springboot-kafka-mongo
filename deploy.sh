@@ -15,6 +15,7 @@ pushd services/spring/demo
 popd
 docker-compose up --build -d
 
+docker logs -f tutorial_spring_container
 # docker exec -it \
 #    tutorial_kafka_container \
 #    /opt/kafka/bin/kafka-topics.sh \

@@ -1,31 +1,14 @@
 # TODO:
 Authentication
-mongodb persistence
 network naming
 post request
 request the data
 
-# Auth
-https://www.bezkoder.com/spring-boot-jwt-auth-mongodb/
+# Auth 
 
-Roles:
-   admin
-   moderator
-   user
+User -> [authentication filter] <-> Authentication Manager <-> Authentication Provider <-> User Details Service
+                                 -> Security Context
 
-So we’re gonna provide APIs as following table:
-
-Methods	Urls	Actions
-POST	/api/auth/signup	signup new account
-POST	/api/auth/signin	login an account
-GET	/api/test/all	retrieve public content
-GET	/api/test/user	access User’s content
-GET	/api/test/mod	access Moderator’s content
-GET	/api/test/admin	access Admin’s content
-
-
-- Spring Security will manage cors, csrf, session, rules for protected resources, authentication & authorization along with exception handler.
-- The database we will use is MongoDB which can be accessed by the help of Spring Data MongoDB.
 
 ```bash
 docker exec -i \
@@ -36,9 +19,20 @@ docker exec -i \
 <<EOF
 use datalake_db;
 db.roles.insertMany([
-   { name: "ROLE_USER" },
-   { name: "ROLE_MODERATOR" },
-   { name: "ROLE_ADMIN" },
+   { id:0, name: "ADMIN" },
+   { id:1, name: "USER" },
+])
+EOF
+
+docker exec -i \
+   tutorial_mongo_container \
+   mongosh \
+      --username rootuser \
+      --password rootpass \
+<<EOF
+use datalake_db;
+db.users.insertMany([
+   { id:0, name: "ADMIN" },
 ])
 EOF
 
@@ -46,6 +40,21 @@ docker logs -f tutorial_spring_container
 
 
 ```
+
+
+## amigo
+> Parameter 0 of constructor in com.example.demo.security.ApplicationConfig required a bean of type 'com.example.demo.security.UserRepository' that could not be found.
+## bezcoder
+> 
+## rytis-codes-auth
+> These videos use deprecated libraries
+
+## teddy-smith-auth
+https://www.youtube.com/watch?v=GjN5IauaflY&list=PL82C6-O4XrHe3sDCodw31GjXbwRdCyyuY&ab_channel=TeddySmith
+
+
+
+
 
 # mongo 
 https://www.baeldung.com/spring-data-mongodb-tutorial

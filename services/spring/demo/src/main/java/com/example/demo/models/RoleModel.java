@@ -5,14 +5,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="roles")
 public class RoleModel {
+
    @Id
    private String id;
-   private RoleEnum role_enum;
+   private RoleEnum name;
 
-
-
-   public RoleModel(RoleEnum role_enum) {
-      this.role_enum = role_enum;
+   public RoleModel(RoleEnum name) {
+      this.name = name;
    }
 
    public RoleModel() {}
@@ -24,10 +23,10 @@ public class RoleModel {
       this.id = id;
    }
    public RoleEnum getRoleEnum() {
-      return role_enum;
+      return name;
    }
-   public void setRoleEnum(RoleEnum role_enum) {
-      this.role_enum = role_enum;
+   public void setRoleEnum(RoleEnum name) {
+      this.name = name;
    }
 
 }
