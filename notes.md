@@ -10,6 +10,34 @@ User -> [authentication filter] <-> Authentication Manager <-> Authentication Pr
                                  -> Security Context
 
 
+
+## amigo
+https://www.youtube.com/watch?v=KxqlJblhzfI
+https://github.com/ali-bouali/spring-boot-3-jwt-security
+
+> Parameter 0 of constructor in com.example.demo.security.ApplicationConfig required a bean of type 'com.example.demo.security.UserRepository' that could not be found.
+## bezcoder
+https://www.bezkoder.com/spring-boot-jwt-auth-mongodb/
+
+localhost:8080/api/content/all
+localhost:8080/api/content/user
+localhost:8080/api/content/mod
+localhost:8080/api/content/admin
+
+
+
+### Revisit
+
+
+### ERROR:
+THE NAME OF THE VARIABLE MATTERS:
+this one costed me 4 days of search
+```java
+   private RoleEnum name;
+   private RoleEnum name;
+```
+
+### snippets
 ```bash
 docker exec -i \
    tutorial_mongo_container \
@@ -19,35 +47,36 @@ docker exec -i \
 <<EOF
 use datalake_db;
 db.roles.insertMany([
-   { id:0, name: "ADMIN" },
-   { id:1, name: "USER" },
-])
-EOF
-
-docker exec -i \
-   tutorial_mongo_container \
-   mongosh \
-      --username rootuser \
-      --password rootpass \
-<<EOF
-use datalake_db;
-db.users.insertMany([
-   { id:0, name: "ADMIN" },
+   { name: "ROLE_ADMIN" },
+   { name: "ROLE_MODERATOR" },
+   { name: "ROLE_USER" },
 ])
 EOF
 
 docker logs -f tutorial_spring_container
 
-
+db.roles.drop()
+db.roles.find()
 ```
 
 
-## amigo
-> Parameter 0 of constructor in com.example.demo.security.ApplicationConfig required a bean of type 'com.example.demo.security.UserRepository' that could not be found.
-## bezcoder
-> 
+
+Register some users with /signup api
+
+```json
+{
+   "username": "george",
+   "email": "asdf@asdf.com",
+   "password": 12345,
+   "roles": ["user"]
+}
+```
+
 ## rytis-codes-auth
 > These videos use deprecated libraries
+https://github.com/rytis-codes/spring-security
+
+
 
 ## teddy-smith-auth
 https://www.youtube.com/watch?v=GjN5IauaflY&list=PL82C6-O4XrHe3sDCodw31GjXbwRdCyyuY&ab_channel=TeddySmith

@@ -27,13 +27,12 @@ public class WebSecurityConfig {
 
    @Autowired
    // TODO: explicitly set this to private
+   // TODO: Rename the var name to userDetailsServiceImpl
    UserDetailsServiceImpl userDetailsService;
 
    @Autowired
    private AuthEntryPointJWT unauthorizeHandler;
    
-   @Autowired
-
    @Bean
    // TODO: Rename this function to a verb
    public AuthTokenFilter authenticationJwtTokenFilter(){
@@ -66,13 +65,15 @@ public class WebSecurityConfig {
    @Bean
    // TODO: Rename this function to a verb
    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
-      httpSecurity.csrf(csrf -> csrf.disable())
+      httpSecurity
+         .csrf(csrf -> csrf.disable())
          .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizeHandler))
          .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-         .authorizeHttpRequests(auth -> 
-            auth.requestMatchers("/api/auth/**").permitAll()
-            .requestMatchers("/api/test/**").permitAll()
+         .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/api/auth/**").permitAll()
+            .requestMatchers("/api/content/**").permitAll()
             .anyRequest().authenticated()
+            // .anyRequest().permitAll()
          );
       httpSecurity.authenticationProvider(authenticationProvider());
       httpSecurity.addFilterBefore(

@@ -23,6 +23,7 @@ import io.jsonwebtoken.security.Keys;
 public class JwtUtils {
    private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
+   // Needs to be 64 characters long
    @Value("${custom.app.jwtSecret}")
    private String jwtSecret;
  
@@ -74,7 +75,6 @@ public class JwtUtils {
       }catch (IllegalArgumentException e){
          logger.error("JWT claims string is empty: {}", e.getMessage());
       }
-
       return false;
    }
 

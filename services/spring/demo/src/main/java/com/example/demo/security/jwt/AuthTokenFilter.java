@@ -17,12 +17,11 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.IOError;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AuthTokenFilter extends OncePerRequestFilter {
+
    @Autowired
    private JwtUtils jwtUtils;
 

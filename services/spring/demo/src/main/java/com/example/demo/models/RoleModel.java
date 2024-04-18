@@ -8,6 +8,8 @@ public class RoleModel {
 
    @Id
    private String id;
+
+   // This var name should be 'name' (???)
    private RoleEnum name;
 
    public RoleModel(RoleEnum name) {
@@ -22,7 +24,7 @@ public class RoleModel {
    public void setId(String id) {
       this.id = id;
    }
-   public RoleEnum getRoleEnum() {
+   public RoleEnum getName() {
       return name;
    }
    public void setRoleEnum(RoleEnum name) {

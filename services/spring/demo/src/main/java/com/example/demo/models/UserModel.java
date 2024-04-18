@@ -29,7 +29,7 @@ public class UserModel {
    private String password;
 
    @DBRef
-   private Set<RoleModel> roles = new HashSet();
+   private Set<RoleModel> roles = new HashSet<>();
 
    public UserModel() {
    }

@@ -13,12 +13,12 @@ public class MessageConsumer {
       @Autowired
       DataRepository dataRepository;
 
-      @KafkaListener(topics="my-topic", groupId="my-group-id")
-      public void listen(String message){
-         System.out.println("Received message: " + message);
+      // @KafkaListener(topics="my-topic", groupId="my-group-id")
+      // public void listen(String message){
+      //    System.out.println("Received message: " + message);
          
-         DataModel dataModel = new DataModel(message);
-         dataRepository.insert(dataModel);
-      }
+      //    DataModel dataModel = new DataModel(message);
+      //    dataRepository.insert(dataModel);
+      // }
 
 }

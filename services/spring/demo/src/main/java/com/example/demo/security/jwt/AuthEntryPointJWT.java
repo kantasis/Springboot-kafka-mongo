@@ -18,6 +18,7 @@ public class AuthEntryPointJWT implements AuthenticationEntryPoint{
 
    @Override
    // This method will be triggerd anytime unauthenticated User requests a secured HTTP resource and an AuthenticationException is thrown.
+   // Handle Authentication Exception
    public void commence(
       HttpServletRequest request,
       HttpServletResponse response,
@@ -25,5 +26,6 @@ public class AuthEntryPointJWT implements AuthenticationEntryPoint{
    ) throws IOException, ServletException {
       logger.error("Unauthorized error: {}", authenticationException.getMessage());
       response.sendError(HttpServletResponse.SC_UNAUTHORIZED,  "Error: Unauthorized");
+      // HttpServletResponse.SC_UNAUTHORIZED is the 401 Status code. It indicates that the request requires HTTP authentication
    }
 }

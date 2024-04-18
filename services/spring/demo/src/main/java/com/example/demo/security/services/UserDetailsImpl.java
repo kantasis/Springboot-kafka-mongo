@@ -42,7 +42,8 @@ public class UserDetailsImpl implements UserDetails {
    public static UserDetailsImpl build(UserModel user){
       List<GrantedAuthority> authorities = user.getRoles()
          .stream().map(
-            role-> new SimpleGrantedAuthority(role.getRoleEnum().name())
+            // TODO: Check if this is the cause of the error where I can't rename the RoleEnum var
+            role-> new SimpleGrantedAuthority(role.getName().name())
          )
          .collect(Collectors.toList());
       return new UserDetailsImpl(
