@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
-import com.example.demo.mongo.DataModel;
-import com.example.demo.mongo.DataRepository;
+import com.example.demo.models.DataModel;
+import com.example.demo.repositories.DataRepository;
 
 @Component
 public class MessageConsumer {

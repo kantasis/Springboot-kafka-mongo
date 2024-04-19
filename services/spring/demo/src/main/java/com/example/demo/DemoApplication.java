@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.mongo.DataModel;
-import com.example.demo.mongo.DataRepository;
+import com.example.demo.models.DataModel;
+import com.example.demo.repositories.DataRepository;
 
 @SpringBootApplication
 public class DemoApplication {
