@@ -28,6 +28,81 @@ localhost:8080/api/content/admin
 
 ### Revisit
 
+```bash
+ENDPOINT="http://localhost:8080"
+
+# Request a public resource
+curl \
+   --request GET \
+   --header "Content-Type: application/json" \
+   "${ENDPOINT}/api/content/all" \
+   --data "55555"
+
+
+# Request a public resource advanced
+curl \
+   --request GET \
+   --header "Content-Type: application/json" \
+   "${ENDPOINT}/api/content/all" \
+   --data @- <<EOF
+{
+   "username": "george",
+   "email": "asdf@asdf.com",
+   "password": 1234567,
+   "roles": ["user"]
+}
+EOF
+
+# Register
+curl \
+   --request POST \
+   --header "Content-Type: application/json" \
+   "${ENDPOINT}/api/auth/signup" \
+   --data @- <<EOF
+{
+   "username": "george",
+   "email": "asdf@asdf.com",
+   "password": 1234567,
+   "roles": ["user"]
+}
+EOF
+
+# Login
+curl \
+   --request POST \
+   --header "Content-Type: application/json" \
+   "${ENDPOINT}/api/auth/signin" \
+   --data @- \
+   << EOF | python3 -c "import sys, json; print(json.load(sys.stdin)['token'])"
+{
+    "username": "george",
+    "password": "1234567"
+}
+EOF
+# The process does not end here. This will give you a token which you need to put in the header like this:
+TOKEN=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZW9yZ2UiLCJpYXQiOjE3MTM1MTMyMjUsImV4cCI6MTcxMzU5OTYyNX0.4xxCwDd-G5DphPn7LTjfTHJi1UG-4I0QBjvTYU8AnUc
+
+# Request a private resource
+curl \
+   --header "Content-Type: application/json" \
+   --header "Authorization: Bearer ${TOKEN}" \
+   --request GET \
+   "${ENDPOINT}/api/content/user"
+
+# Parse JSON response
+curl \
+   --request GET \
+   --header "Content-Type: application/json" \
+   "${ENDPOINT}/api/content/all" \
+   --data @- \
+   << EOF | python3 -c "import sys, json; print(json.load(sys.stdin)['password'])"
+{
+    "username": "george",
+    "password": "1234567"
+}
+EOF
+
+```
 
 ### ERROR:
 THE NAME OF THE VARIABLE MATTERS:
@@ -57,6 +132,7 @@ docker logs -f tutorial_spring_container
 
 db.roles.drop()
 db.roles.find()
+db.users.find()
 ```
 
 
