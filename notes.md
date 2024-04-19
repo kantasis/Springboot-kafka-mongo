@@ -10,9 +10,6 @@ request the data
 https://www.bezkoder.com/spring-boot-mongodb-crud/
 
 
-
-
-
 # Auth 
 
 User -> [authentication filter] <-> Authentication Manager <-> Authentication Provider <-> User Details Service
@@ -118,7 +115,7 @@ this one costed me 4 days of search
 ### snippets
 ```bash
 docker exec -i \
-   tutorial_mongo_container \
+   datalake_mongo_container \
    mongosh \
       --username rootuser \
       --password rootpass \
@@ -134,6 +131,8 @@ EOF
 docker logs -f tutorial_spring_container
 
 db.roles.drop()
+
+use datalake_db;
 db.roles.find()
 db.users.find()
 ```

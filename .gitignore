@@ -1,4 +1,5 @@
 shared/
+.env
 .private/
 .vscode/
 services/spring/demo/target/
