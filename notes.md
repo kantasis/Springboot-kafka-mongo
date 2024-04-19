@@ -8,7 +8,7 @@ request the data
 
 ## Bezcoder:
 https://www.bezkoder.com/spring-boot-mongodb-crud/
-
+https://github.com/bezkoder/spring-boot-data-mongodb
 
 Methods	Urls	Actions
 POST	/api/tutorials	create new Tutorial
