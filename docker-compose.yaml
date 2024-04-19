@@ -1,9 +1,9 @@
 version: "3"
 services:
 
-   tutorial_spring_label:
-      image: tutorial_spring_image
-      container_name: tutorial_spring_container
+   datalake_spring_label:
+      image: datalake_spring_image
+      container_name: datalake_spring_container
       build:
          context: ./services/spring
          args:
@@ -19,47 +19,47 @@ services:
          - ./shared/tomcat-logs:/tomcat/logs
          - ./shared/spring-logs:/spring/logs
       depends_on:
-         - tutorial_kafka_label
-         - tutorial_mongo_label
+         - datalake_kafka_label
+         - datalake_mongo_label
 
-   tutorial_zookeeper_label:
-      container_name: tutorial_zookeeper_container
-      image: tutorial_zookeeper_image
+   datalake_zookeeper_label:
+      container_name: datalake_zookeeper_container
+      image: datalake_zookeeper_image
       build: ./services/zookeeper
       ports:
          - 2181:2181
 
-   tutorial_kafka_label:
-      container_name: tutorial_kafka_container
-      image: tutorial_kafka_image
+   datalake_kafka_label:
+      container_name: datalake_kafka_container
+      image: datalake_kafka_image
       build: ./services/kafka
       ports:
          - 9092:9092
       depends_on:
-         - tutorial_zookeeper_label
+         - datalake_zookeeper_label
 
-   # tutorial_python_label:
-   #    container_name: tutorial_python_container
-   #    image: tutorial_python_image
+   # datalake_python_label:
+   #    container_name: datalake_python_container
+   #    image: datalake_python_image
    #    build: ./services/python
    #    volumes:
    #       - ./shared/python:/shared
    #    environment:
    #       - GK_PWD=${PWD}
 
-   tutorial_mongo_label:
-      container_name: tutorial_mongo_container
-      image: tutorial_mongo_image
+   datalake_mongo_label:
+      container_name: datalake_mongo_container
+      image: datalake_mongo_image
       build:
          context: ./services/mongodb
          args:
          - MONGO_USERNAME=${MONGO_ROOT_USERNAME}
          - MONGO_PASSWORD=${MONGO_ROOT_PASSWORD}
       volumes: 
-         - tutorial_mongo_volume:/data/db
+         - datalake_mongo_volume:/data/db
       #    - ./shared/mongo:/data/db
       # ports:
       #    - 27017:27017
 
 volumes:
-   tutorial_mongo_volume: {}
+   datalake_mongo_volume: {}

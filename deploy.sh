@@ -15,18 +15,4 @@ pushd services/spring/demo
 popd
 docker-compose up --build -d
 
-docker logs -f tutorial_spring_container
-# docker exec -it \
-#    tutorial_kafka_container \
-#    /opt/kafka/bin/kafka-topics.sh \
-#       --bootstrap-server localhost:9092 \
-#       --create \
-#       --topic "my-topic"
-
-# echo "GK> TOPIC LIST:"
-# docker exec -it \
-#    tutorial_kafka_container \
-#    /opt/kafka/bin/kafka-topics.sh \
-#       --bootstrap-server localhost:9092 \
-#       --list
-
+docker logs -f datalake_spring_container
