@@ -33,7 +33,7 @@ public class DataController {
       @RequestParam(required = false)
       String query
    ){
-      System.out.println("getAllData");
+      // System.out.println("getAllData");
       List<DataModel> data_lst = new ArrayList<DataModel>();
       data_lst = dataRepository.findAll();
       return new ResponseEntity<>(data_lst,HttpStatus.OK);
@@ -52,7 +52,7 @@ public class DataController {
       @RequestBody
       DataModel dataModel
    ) {
-      System.out.println("createData");
+      // System.out.println("createData");
       try {
          DataModel _dataModel = dataRepository.save(dataModel);
          return new ResponseEntity<>(_dataModel,HttpStatus.OK);

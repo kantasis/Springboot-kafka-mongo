@@ -21,6 +21,18 @@ GET	/api/tutorials/published	find all published Tutorials
 GET	/api/tutorials?title=[keyword]	find all Tutorials which title contains keyword
 
 
+```bash
+docker exec -i \
+   datalake_mongo_container \
+   mongosh \
+      --username rootuser \
+      --password rootpass \
+<<EOF
+use datalake_db;
+db.data.find()
+EOF
+
+```
 
 
 
@@ -151,6 +163,7 @@ docker logs -f tutorial_spring_container
 db.roles.drop()
 
 use datalake_db;
+db.data.find()
 db.roles.find()
 db.users.find()
 ```
