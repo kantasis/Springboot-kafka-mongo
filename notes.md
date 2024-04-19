@@ -10,6 +10,24 @@ request the data
 https://www.bezkoder.com/spring-boot-mongodb-crud/
 
 
+Methods	Urls	Actions
+POST	/api/tutorials	create new Tutorial
+GET	/api/tutorials	retrieve all Tutorials
+GET	/api/tutorials/:id	retrieve a Tutorial by :id
+PUT	/api/tutorials/:id	update a Tutorial by :id
+DELETE	/api/tutorials/:id	delete a Tutorial by :id
+DELETE	/api/tutorials	delete all Tutorials
+GET	/api/tutorials/published	find all published Tutorials
+GET	/api/tutorials?title=[keyword]	find all Tutorials which title contains keyword
+
+
+
+
+
+
+
+
+
 # Auth 
 
 User -> [authentication filter] <-> Authentication Manager <-> Authentication Provider <-> User Details Service
