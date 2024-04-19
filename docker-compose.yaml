@@ -1,6 +1,6 @@
 version: "3"
 services:
-
+# TODO: use the environment: element instead of arguments
    tutorial_spring_label:
       image: tutorial_spring_image
       container_name: tutorial_spring_container
@@ -14,7 +14,7 @@ services:
          - MONGO_PORT=${MONGO_PORT}
          - SPRING_PORT=${SPRING_PORT}
       ports:
-         - 8080:8080
+         - 8080:${SPRING_PORT}
       volumes: 
          - ./shared/tomcat-logs:/tomcat/logs
          - ./shared/spring-logs:/spring/logs
@@ -59,7 +59,7 @@ services:
          - tutorial_mongo_volume:/data/db
       #    - ./shared/mongo:/data/db
       # ports:
-      #    - 27017:27017
+      #    - 27017:${MONGO_PORT}
 
 volumes:
    tutorial_mongo_volume: {}

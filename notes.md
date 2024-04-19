@@ -4,18 +4,19 @@ network naming
 post request
 request the data
 
+# CRUD
+
+## Bezcoder:
+https://www.bezkoder.com/spring-boot-mongodb-crud/
+
+
+
+
+
 # Auth 
 
 User -> [authentication filter] <-> Authentication Manager <-> Authentication Provider <-> User Details Service
                                  -> Security Context
-
-
-
-## amigo
-https://www.youtube.com/watch?v=KxqlJblhzfI
-https://github.com/ali-bouali/spring-boot-3-jwt-security
-
-> Parameter 0 of constructor in com.example.demo.security.ApplicationConfig required a bean of type 'com.example.demo.security.UserRepository' that could not be found.
 ## bezcoder
 https://www.bezkoder.com/spring-boot-jwt-auth-mongodb/
 
@@ -24,6 +25,8 @@ localhost:8080/api/content/user
 localhost:8080/api/content/mod
 localhost:8080/api/content/admin
 
+localhost:8080/api/auth/signin
+localhost:8080/api/auth/signup
 
 
 ### Revisit
@@ -147,6 +150,19 @@ Register some users with /signup api
    "roles": ["user"]
 }
 ```
+
+
+
+
+## amigo
+https://www.youtube.com/watch?v=KxqlJblhzfI
+https://github.com/ali-bouali/spring-boot-3-jwt-security
+
+
+> Bezcoder has a JPA authentication tutorial which may be good too
+https://www.bezkoder.com/spring-boot-jwt-authentication/
+
+> Parameter 0 of constructor in com.example.demo.security.ApplicationConfig required a bean of type 'com.example.demo.security.UserRepository' that could not be found.
 
 ## rytis-codes-auth
 > These videos use deprecated libraries

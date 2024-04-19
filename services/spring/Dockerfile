@@ -1,4 +1,11 @@
 FROM eclipse-temurin:17-jdk-alpine
+
+# Bezkoder suggests this:
+# FROM maven:3.8.5-openjdk-17
+
+# I don't think this one is necessary
+# Ports are not exposed to host machines, only exposed to other services.
+# TODO: Remove this
 EXPOSE 8080
 
 ARG SPRING_PORT
@@ -18,6 +25,9 @@ ENV MONGO_HOST ${MONGO_HOST}
 
 ARG MONGO_PORT
 ENV MONGO_PORT ${MONGO_PORT}
+
+ARG MONGODB_DATABASE
+ENV MONGODB_DATABASE ${MONGODB_DATABASE}
 
 COPY demo/target/demo-0.0.1-SNAPSHOT.jar app.jar
 
