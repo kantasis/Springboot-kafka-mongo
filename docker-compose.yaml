@@ -13,6 +13,7 @@ services:
          - MONGO_HOST=${MONGO_HOST}
          - MONGO_PORT=${MONGO_PORT}
          - SPRING_PORT=${SPRING_PORT}
+         - MONGODB_DATABASE=${MONGODB_DATABASE}
       ports:
          - 8080:${SPRING_PORT}
       volumes: 
@@ -63,3 +64,6 @@ services:
 
 volumes:
    datalake_mongo_volume: {}
+
+networks:
+   datalake_main_network: {}
