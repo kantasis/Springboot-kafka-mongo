@@ -1,5 +1,4 @@
 # TODO:
-Authentication
 network naming
 post request
 request the data
@@ -212,7 +211,7 @@ https://www.baeldung.com/spring-data-mongodb-tutorial
 
 ```bash
 docker exec -it \
-   tutorial_mongo_container \
+   datalake_mongo_container \
    mongosh \
       --username rootuser \
       --password rootpass

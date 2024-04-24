@@ -6,19 +6,16 @@ services:
       container_name: datalake_spring_container
       build:
          context: ./services/spring
-         args:
-         - KAFKA_BOOTSTRAP_SERVER=${KAFKA_BOOTSTRAP_SERVER}
-         - MONGO_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
-         - MONGO_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
-         - MONGO_HOST=${MONGO_HOST}
-         - MONGO_PORT=${MONGO_PORT}
-         - SPRING_PORT=${SPRING_PORT}
-         - MONGODB_DATABASE=${MONGODB_DATABASE}
       ports:
          - 8080:${SPRING_PORT}
+      env_file:
+         - .private/mongo.env
+         - .private/spring.env
       volumes: 
          - ./shared/tomcat-logs:/tomcat/logs
          - ./shared/spring-logs:/spring/logs
+      networks:
+         - datalake_main_network
       depends_on:
          - datalake_kafka_label
          - datalake_mongo_label
@@ -29,6 +26,8 @@ services:
       build: ./services/zookeeper
       ports:
          - 2181:2181
+      networks:
+         - datalake_main_network
 
    datalake_kafka_label:
       container_name: datalake_kafka_container
@@ -36,9 +35,12 @@ services:
       build: ./services/kafka
       ports:
          - 9092:9092
+      networks:
+         - datalake_main_network
       depends_on:
          - datalake_zookeeper_label
 
+   # # This container is there for testing purposes
    # datalake_python_label:
    #    container_name: datalake_python_container
    #    image: datalake_python_image
@@ -53,12 +55,12 @@ services:
       image: datalake_mongo_image
       build:
          context: ./services/mongodb
-         args:
-         - MONGO_USERNAME=${MONGO_ROOT_USERNAME}
-         - MONGO_PASSWORD=${MONGO_ROOT_PASSWORD}
+      env_file:
+         - .private/mongo.env
       volumes: 
          - datalake_mongo_volume:/data/db
-      #    - ./shared/mongo:/data/db
+      networks:
+         - datalake_main_network
       # ports:
       #    - 27017:${MONGO_PORT}
 
