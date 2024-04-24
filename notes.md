@@ -2,8 +2,31 @@
 network naming
 post request
 request the data
+pagination
+datatype of the incoming document
 
 # CRUD
+
+GET /api/data           getAllData(query): returns all records in the collection [retrieve]
+GET /api/data/{id}      getData(id): returns a specific document [retrieve]
+POST /api/data          createData(data) creates a document [create]
+PUT /api/data/{id}      udpateData(id, data) edit a document [update]
+DELETE /api/data/{id}   deleteData(id) remove record with id [delete]
+DELETE /api/data/       deleteAllData() remove all records [delete]
+
+
+```bash
+docker exec -i \
+   datalake_mongo_container \
+   mongosh \
+      --username rootuser \
+      --password rootpass \
+<<EOF
+use datalake_db;
+db.data.find()
+EOF
+
+```
 
 ## Bezcoder:
 https://www.bezkoder.com/spring-boot-mongodb-crud/
@@ -20,18 +43,6 @@ GET	/api/tutorials/published	find all published Tutorials
 GET	/api/tutorials?title=[keyword]	find all Tutorials which title contains keyword
 
 
-```bash
-docker exec -i \
-   datalake_mongo_container \
-   mongosh \
-      --username rootuser \
-      --password rootpass \
-<<EOF
-use datalake_db;
-db.data.find()
-EOF
-
-```
 
 
 

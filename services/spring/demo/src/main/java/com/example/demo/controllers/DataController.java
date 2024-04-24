@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,10 +30,12 @@ public class DataController {
    DataRepository dataRepository;
 
    @GetMapping("")
+   // RETRIEVE
    public ResponseEntity<List<DataModel>> getAllData(
       @RequestParam(required = false)
       String query
    ){
+      // TODO: make use of the query parameter
       // System.out.println("getAllData");
       List<DataModel> data_lst = new ArrayList<DataModel>();
       data_lst = dataRepository.findAll();
@@ -40,14 +43,20 @@ public class DataController {
    }
 
    @GetMapping("/{id}")
+   // RETRIEVE
    public ResponseEntity<DataModel> getData(
       @PathVariable("id")
       String id
    ){
-      return null;
+      Optional<DataModel> dataModel = dataRepository.findById(id);
+      if (dataModel.isPresent())
+         return new ResponseEntity<>(dataModel.get(), HttpStatus.OK);
+      else
+         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
    }
 
    @PostMapping("")
+   // CREATE
    public ResponseEntity<DataModel> createData(
       @RequestBody
       DataModel dataModel
@@ -62,13 +71,19 @@ public class DataController {
    }
 
    @PutMapping("/{id}")
+   // UPDATE
    public ResponseEntity<DataModel> updateData(
       @PathVariable
       String id,
       @RequestBody
-      DataModel dataModel
+      DataModel given_dataModel
    ) {
-      return null;
+      Optional<DataModel> found_dataModel = dataRepository.findById(id);
+      if (!found_dataModel.isPresent())
+         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      
+      DataModel edited_dataModel = dataRepository.save(given_dataModel);
+      return new ResponseEntity<>(edited_dataModel, HttpStatus.OK);
    }
 
    @DeleteMapping("/{id}")
@@ -76,13 +91,22 @@ public class DataController {
       @PathVariable("id")
       String id
    ) {
-      return null;
+      try {
+         dataRepository.deleteById(id);
+         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+      }catch(Exception e){
+         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+      }
    }
 
    @DeleteMapping("")
    public ResponseEntity<HttpStatus> deleteAllData() {
-      return null;
+      try {
+         dataRepository.deleteAll();
+         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+      }catch(Exception e){
+         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+      }
    }
-
 
 }
