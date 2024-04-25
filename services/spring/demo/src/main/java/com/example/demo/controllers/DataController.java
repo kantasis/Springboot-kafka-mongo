@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.models.DataModel;
 import com.example.demo.repositories.DataRepository;
 
+
+
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/data")
@@ -87,6 +89,7 @@ public class DataController {
    }
 
    @DeleteMapping("/{id}")
+   // DELETE
    public ResponseEntity<HttpStatus> deleteData(
       @PathVariable("id")
       String id
@@ -100,6 +103,7 @@ public class DataController {
    }
 
    @DeleteMapping("")
+   // DELETE
    public ResponseEntity<HttpStatus> deleteAllData() {
       try {
          dataRepository.deleteAll();

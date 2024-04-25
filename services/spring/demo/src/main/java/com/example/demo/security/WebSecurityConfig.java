@@ -73,6 +73,7 @@ public class WebSecurityConfig {
          // .requestMatchers("/api/data**").permitAll()
             .requestMatchers("/api/auth/**").permitAll()
             .requestMatchers("/api/content/**").permitAll()
+            .requestMatchers("/hello").permitAll()
             .anyRequest().authenticated()
             // .anyRequest().permitAll()
          );
