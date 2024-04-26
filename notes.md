@@ -23,8 +23,21 @@ docker exec -i \
       --password rootpass \
 <<EOF
 use datalake_db;
-db.data.find()
+db.dynamic_collection.find()
+db.dynamic_collection.drop()
 EOF
+
+```
+
+```java
+
+   template.updateFirst(
+      query(
+         where("name").is("Joe")
+      ), 
+      update("age", 35), 
+      Person.class
+   );
 
 ```
 

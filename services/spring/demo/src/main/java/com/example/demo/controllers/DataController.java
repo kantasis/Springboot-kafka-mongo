@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,64 +31,83 @@ import com.example.demo.repositories.DataRepository;
 @RequestMapping("/api/data")
 public class DataController {
 
+   private static final String collection_name = "data";
+
    @Autowired
    DataRepository dataRepository;
 
+   @Autowired
+   private MongoTemplate mongoTemplate;
+
    @GetMapping("")
    // RETRIEVE
-   public ResponseEntity<List<DataModel>> getAllData(
+   public ResponseEntity<List<Document>> getAllData(
       @RequestParam(required = false)
       String query
    ){
       // TODO: make use of the query parameter
-      // System.out.println("getAllData");
-      List<DataModel> data_lst = new ArrayList<DataModel>();
-      data_lst = dataRepository.findAll();
-      return new ResponseEntity<>(data_lst,HttpStatus.OK);
+      
+      // TODO: Implement pagination
+
+      // Retrieve all documents
+      List<Document> documents = mongoTemplate.findAll(
+         Document.class, 
+         collection_name
+      );
+
+      // Return a response with all the documents
+      return new ResponseEntity<>(documents,HttpStatus.OK);
    }
 
    @GetMapping("/{id}")
    // RETRIEVE
-   public ResponseEntity<DataModel> getData(
+   public ResponseEntity<Document> getData(
       @PathVariable("id")
       String id
    ){
-      Optional<DataModel> dataModel = dataRepository.findById(id);
-      if (dataModel.isPresent())
-         return new ResponseEntity<>(dataModel.get(), HttpStatus.OK);
+      Document result = mongoTemplate.findById(
+         id, 
+         Document.class,
+         collection_name
+      );
+
+      System.out.println("Found: "+result);
+      if (result != null)
+         return new ResponseEntity<>(result, HttpStatus.OK);
       else
          return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
    }
 
    @PostMapping("")
    // CREATE
-   public ResponseEntity<DataModel> createData(
+   public ResponseEntity<Document> createData(
       @RequestBody
-      DataModel dataModel
+      Document document
    ) {
-      // System.out.println("createData");
-      try {
-         DataModel _dataModel = dataRepository.save(dataModel);
-         return new ResponseEntity<>(_dataModel,HttpStatus.OK);
-      } catch (Exception e){
-         return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
-      }
+      Document saved_document = mongoTemplate.save(document, collection_name);
+      return new ResponseEntity<>(saved_document, HttpStatus.OK);
    }
 
    @PutMapping("/{id}")
    // UPDATE
-   public ResponseEntity<DataModel> updateData(
+   public ResponseEntity<Document> updateData(
       @PathVariable
       String id,
       @RequestBody
-      DataModel given_dataModel
+      Document new_document
    ) {
-      Optional<DataModel> found_dataModel = dataRepository.findById(id);
-      if (!found_dataModel.isPresent())
+
+      Document found_document = mongoTemplate.findById(
+         id, 
+         Document.class,
+         collection_name
+      );
+
+      if (found_document == null)
          return new ResponseEntity<>(HttpStatus.NOT_FOUND);
       
-      DataModel edited_dataModel = dataRepository.save(given_dataModel);
-      return new ResponseEntity<>(edited_dataModel, HttpStatus.OK);
+      Document saved_document = mongoTemplate.save(new_document, collection_name);
+      return new ResponseEntity<>(saved_document, HttpStatus.OK);
    }
 
    @DeleteMapping("/{id}")
@@ -94,23 +116,15 @@ public class DataController {
       @PathVariable("id")
       String id
    ) {
-      try {
-         dataRepository.deleteById(id);
-         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-      }catch(Exception e){
-         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-      }
+      mongoTemplate.remove(id);
+      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
    }
 
    @DeleteMapping("")
    // DELETE
    public ResponseEntity<HttpStatus> deleteAllData() {
-      try {
-         dataRepository.deleteAll();
-         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-      }catch(Exception e){
-         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-      }
+      mongoTemplate.remove(new Query());
+      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
    }
 
 }
