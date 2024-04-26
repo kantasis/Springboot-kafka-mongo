@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -65,13 +66,14 @@ public class DataController {
       @PathVariable("id")
       String id
    ){
-      Document result = mongoTemplate.findById(
-         id, 
+      Document result = mongoTemplate.find(
+         new BasicQuery("{\"id\": \""+id+"\"}"),
          Document.class,
          collection_name
-      );
+      )
+      // We assume ids are unique
+      .get(0);
 
-      System.out.println("Found: "+result);
       if (result != null)
          return new ResponseEntity<>(result, HttpStatus.OK);
       else
@@ -96,12 +98,12 @@ public class DataController {
       @RequestBody
       Document new_document
    ) {
-
-      Document found_document = mongoTemplate.findById(
-         id, 
+      // TODO: Test this
+      Document found_document = mongoTemplate.find(
+         new BasicQuery("{\"id\": \""+id+"\"}"),
          Document.class,
          collection_name
-      );
+      ).get(0);
 
       if (found_document == null)
          return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -116,14 +118,29 @@ public class DataController {
       @PathVariable("id")
       String id
    ) {
-      mongoTemplate.remove(id);
+      String query = "{\"id\": \""+id+"\"}";
+      System.out.println("Query: " + query);
+      Document found_document = mongoTemplate.find(
+         new BasicQuery(query),
+         Document.class,
+         collection_name
+      ).get(0);
+
+      // TODO: Return how many documents were removed
+      mongoTemplate.remove(
+         found_document,
+         collection_name
+      );
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
    }
 
    @DeleteMapping("")
    // DELETE
    public ResponseEntity<HttpStatus> deleteAllData() {
-      mongoTemplate.remove(new Query());
+      mongoTemplate.remove(
+         new BasicQuery("{}"),
+         collection_name
+      );
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
    }
 

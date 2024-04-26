@@ -27,6 +27,14 @@ db.dynamic_collection.find()
 db.dynamic_collection.drop()
 EOF
 
+
+
+db.data.find({"id": "0"})
+db.data.find()
+
+
+
+
 ```
 
 ```java
