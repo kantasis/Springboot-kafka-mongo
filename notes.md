@@ -1,7 +1,12 @@
 # TODO:
+Perform mogndb queries
+Write to specific collections
 pagination
 datatype of the incoming document
 role based access
+Prune unnecessary endpoints, classes and functions
+Send back proper responses
+Check if ID is unique
 
 # CRUD
 
@@ -14,6 +19,8 @@ DELETE /api/data/       deleteAllData() remove all records [delete]
 
 
 ```bash
+docker logs -f datalake_spring_container
+
 docker exec -i \
    datalake_mongo_container \
    mongosh \
@@ -21,17 +28,28 @@ docker exec -i \
       --password rootpass \
 <<EOF
 use datalake_db;
-db.dynamic_collection.find()
-db.dynamic_collection.drop()
+db.roles.insertMany([
+   { name: "ROLE_ADMIN" },
+   { name: "ROLE_MODERATOR" },
+   { name: "ROLE_USER" },
+])
 EOF
 
 
+```
+
+```js
+
+use datalake_db;
+show collections;
+db.roles.find()
+db.users.find()
 
 db.data.find({"id": "0"})
 db.data.find()
+db.data.find({})
 
-
-
+db.dynamic_collection.drop()
 
 ```
 
