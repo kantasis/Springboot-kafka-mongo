@@ -1,9 +1,7 @@
 # TODO:
-network naming
-post request
-request the data
 pagination
 datatype of the incoming document
+role based access
 
 # CRUD
 

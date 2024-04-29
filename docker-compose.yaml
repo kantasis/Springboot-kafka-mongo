@@ -7,7 +7,7 @@ services:
       build:
          context: ./services/spring
       ports:
-         - 8080:${SPRING_PORT}
+         - 8180:${SPRING_PORT}
       env_file:
          - .private/mongo.env
          - .private/spring.env
