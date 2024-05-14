@@ -30,13 +30,18 @@ import com.example.demo.security.payloads.MessageResponse;
 import com.example.demo.security.payloads.SignupRequest;
 import com.example.demo.security.services.UserDetailsImpl;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @CrossOrigin(origins="*", maxAge=3600)
 @RestController
 @RequestMapping("/api/auth")
-@Tag(name = "Authentication", description = "Authentication management API")
+@Tag(name = "Authentication", description = "Signup and signin endpoints")
 public class AuthController {
 
    @Autowired
@@ -54,6 +59,15 @@ public class AuthController {
    @Autowired
    JwtUtils jwtUtils;
 
+   @Operation(
+      summary = "Login",
+      description = "Provide a username and a password to receive a JWT"
+   )
+   @ApiResponses({
+      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) 
+   })
    @PostMapping("/signin")
    public ResponseEntity<?> authenticateUser(
       @Valid
@@ -90,6 +104,15 @@ public class AuthController {
       return ResponseEntity.ok(response);
    }
 
+   @Operation(
+      summary = "Register",
+      description = "Provide a username, email and password to register in the API"
+   )
+   @ApiResponses({
+      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) 
+   })
    @PostMapping("/signup")
    public ResponseEntity<?> registerUser (
       @Valid

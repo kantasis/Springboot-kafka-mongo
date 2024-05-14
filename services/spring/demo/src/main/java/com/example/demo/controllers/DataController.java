@@ -51,14 +51,13 @@ public class DataController {
    
    @Operation(
       summary = "Retrieve all documents",
-      description = "Get all the documents in the specified collection.",
-      tags = { "document", "retrieve" }
+      description = "Get all the documents in the specified collection."
    )
    @ApiResponses({
       @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = List.class), mediaType = "application/json") }),
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
-      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) }
-   )
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
+   })
    @GetMapping("/{collection}")
    public ResponseEntity<List<Document>> getAllData(
       @PathVariable("collection")
@@ -82,14 +81,13 @@ public class DataController {
 
    @Operation(
       summary = "Retrieve a specific document",
-      description = "Find a document by ID form the specified collection.",
-      tags = { "document", "retrieve" }
+      description = "Find a document by ID form the specified collection."
    )
    @ApiResponses({
       @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Document.class), mediaType = "application/json") }),
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
-      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) }
-   )
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
+   })
    @GetMapping("/{collection}/{id}")
    public ResponseEntity<Document> getData(
       @PathVariable("collection")
@@ -115,14 +113,13 @@ public class DataController {
 
    @Operation(
       summary = "Create a new document in the collection",
-      description = "Creates a new document from the specified body",
-      tags = { "document", "create" }
+      description = "Creates a new document from the specified body"
    )
    @ApiResponses({
       @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Document.class), mediaType = "application/json") }),
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
-      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) }
-   )
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
+   })
    @PostMapping("/{collection}")
    public ResponseEntity<Document> createData(
       @PathVariable("collection")
@@ -155,14 +152,13 @@ public class DataController {
 
    @Operation(
       summary = "Update an existing document",
-      description = "Finds an existing document by ID and updates it fields according to the resonse body",
-      tags = { "document", "update" }
+      description = "Finds an existing document by ID and updates it fields according to the resonse body"
    )
    @ApiResponses({
       @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Document.class), mediaType = "application/json") }),
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
-      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) }
-   )
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
+   })
    @PutMapping("/{collection}/{id}")
    public ResponseEntity<Document> updateData(
       @PathVariable("collection")
@@ -213,14 +209,13 @@ public class DataController {
 
    @Operation(
       summary = "Delete a document",
-      description = "Find a document by its ID in the specified collection and remove it",
-      tags = { "document", "delete" }
+      description = "Find a document by its ID in the specified collection and remove it"
    )
    @ApiResponses({
       @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = HttpStatus.class), mediaType = "application/json") }),
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
-      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) }
-   )
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
+   })
    @DeleteMapping("/{collection}/{id}")
    // DELETE
    public ResponseEntity<HttpStatus> deleteData(
@@ -247,13 +242,12 @@ public class DataController {
 
    @Operation(
       summary = "Delete a collection",
-      description = "Remove all documents from the specified collection",
-      tags = { "document", "delete" }
+      description = "Remove all documents from the specified collection"
    )
    @ApiResponses({
       @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = HttpStatus.class), mediaType = "application/json") }),
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
-      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) 
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
    @DeleteMapping("/{collection}")
    public ResponseEntity<HttpStatus> deleteAllData(

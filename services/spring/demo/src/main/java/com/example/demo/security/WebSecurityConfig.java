@@ -19,6 +19,8 @@ import com.example.demo.security.jwt.AuthEntryPointJWT;
 import com.example.demo.security.jwt.AuthTokenFilter;
 import com.example.demo.security.services.UserDetailsServiceImpl;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @Configuration
 // allows Spring to find and automatically apply the class to the global Web Security.
 // @EnableWebSecurity
