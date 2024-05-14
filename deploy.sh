@@ -7,12 +7,12 @@ if [ ! -f "$ENV_FILE" ]; then
 fi
 . "$ENV_FILE"
 
-docker-compose stop || exit
+docker compose stop || exit
 
 pushd services/spring/demo
 ./mvnw clean package || exit
 
 popd
-docker-compose up --build -d
+docker compose up --build -d
 
 docker logs -f datalake_spring_container

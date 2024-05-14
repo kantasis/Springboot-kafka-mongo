@@ -25,11 +25,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.models.DataModel;
 import com.example.demo.repositories.DataRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/data")
+@Tag(name = "Datalake", description = "Data Lake data management API")
 public class DataController {
 
    // private static final String collection_name = "data";
@@ -40,8 +48,18 @@ public class DataController {
    @Autowired
    private MongoTemplate mongoTemplate;
 
+   
+   @Operation(
+      summary = "Retrieve all documents",
+      description = "Get all the documents in the specified collection.",
+      tags = { "document", "retrieve" }
+   )
+   @ApiResponses({
+      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = List.class), mediaType = "application/json") }),
+      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) }
+   )
    @GetMapping("/{collection}")
-   // RETRIEVE
    public ResponseEntity<List<Document>> getAllData(
       @PathVariable("collection")
       String collection_name,
@@ -62,8 +80,17 @@ public class DataController {
       return new ResponseEntity<>(documents,HttpStatus.OK);
    }
 
+   @Operation(
+      summary = "Retrieve a specific document",
+      description = "Find a document by ID form the specified collection.",
+      tags = { "document", "retrieve" }
+   )
+   @ApiResponses({
+      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Document.class), mediaType = "application/json") }),
+      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) }
+   )
    @GetMapping("/{collection}/{id}")
-   // RETRIEVE
    public ResponseEntity<Document> getData(
       @PathVariable("collection")
       String collection_name,
@@ -85,8 +112,18 @@ public class DataController {
          return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
    }
 
+
+   @Operation(
+      summary = "Create a new document in the collection",
+      description = "Creates a new document from the specified body",
+      tags = { "document", "create" }
+   )
+   @ApiResponses({
+      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Document.class), mediaType = "application/json") }),
+      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) }
+   )
    @PostMapping("/{collection}")
-   // CREATE
    public ResponseEntity<Document> createData(
       @PathVariable("collection")
       String collection_name,
@@ -116,8 +153,17 @@ public class DataController {
       return new ResponseEntity<>(saved_document, HttpStatus.OK);
    }
 
+   @Operation(
+      summary = "Update an existing document",
+      description = "Finds an existing document by ID and updates it fields according to the resonse body",
+      tags = { "document", "update" }
+   )
+   @ApiResponses({
+      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Document.class), mediaType = "application/json") }),
+      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) }
+   )
    @PutMapping("/{collection}/{id}")
-   // UPDATE
    public ResponseEntity<Document> updateData(
       @PathVariable("collection")
       String collection_name,
@@ -165,6 +211,16 @@ public class DataController {
       return new ResponseEntity<>(saved_document, HttpStatus.OK);
    }
 
+   @Operation(
+      summary = "Delete a document",
+      description = "Find a document by its ID in the specified collection and remove it",
+      tags = { "document", "delete" }
+   )
+   @ApiResponses({
+      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = HttpStatus.class), mediaType = "application/json") }),
+      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) }
+   )
    @DeleteMapping("/{collection}/{id}")
    // DELETE
    public ResponseEntity<HttpStatus> deleteData(
@@ -189,8 +245,17 @@ public class DataController {
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
    }
 
+   @Operation(
+      summary = "Delete a collection",
+      description = "Remove all documents from the specified collection",
+      tags = { "document", "delete" }
+   )
+   @ApiResponses({
+      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = HttpStatus.class), mediaType = "application/json") }),
+      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) 
+   })
    @DeleteMapping("/{collection}")
-   // DELETE
    public ResponseEntity<HttpStatus> deleteAllData(
       @PathVariable("collection")
       String collection_name

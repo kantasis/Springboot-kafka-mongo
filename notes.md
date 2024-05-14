@@ -7,6 +7,39 @@ role based access
 Prune unnecessary endpoints, classes and functions
 Send back proper responses
 Check if ID is unique
+[Spring Boot, React & MongoDB example: Build a CRUD Application](https://www.bezkoder.com/react-spring-boot-mongodb/)
+[Spring Boot + Swagger 3 example (with OpenAPI 3)](https://www.bezkoder.com/spring-boot-swagger-3/)
+
+# Swagger:
+
+https://www.bezkoder.com/spring-boot-swagger-3/
+
+Run Spring Boot project. Open browser with url:
+`http://localhost:8180/swagger-ui/index.html`
+
+Open `http://localhost:8180/v3/api-docs`, you will see document in Json format:
+
+**Note**:
+Add the following matchers in the `WebSecurityConfig` class
+```java
+   .requestMatchers("/v3/api-docs/**").permitAll()
+   .requestMatchers("/swagger-ui/**").permitAll()
+
+```
+
+– Use `api-docs.enabled=false` if you want to disable springdoc-openapi endpoints.
+– Use `swagger-ui.enabled=false` to disable the swagger-ui endpoint.
+– `api-docs.path` is for custom path of the OpenAPI documentation in Json format. Now it is http://localhost:8080/bezkoder-api-docs.
+– `swagger-ui.path` is for custom path of the Swagger documentation. If you visit http://localhost:8080/bezkoder-documentation, the browser will redirect you to http://localhost:8080/swagger-ui/index.html
+– `packages-to-scan=packageA,packageB`: list of packages to scan with comma separated.
+We also have packages-to-exclude, paths-to-match, paths-to-exclude.
+– `swagger-ui.tryItOutEnabled` if you want to enable “Try it out” section by default.
+– `swagger-ui.operationsSorter`: ‘alpha’ (sort by paths alphanumerically), ‘method’ (sort by HTTP method) or a function.
+– `swagger-ui.tagsSorter`: ‘alpha’ (sort by paths alphanumerically) or a function.
+– `swagger-ui.filter`: true/false to enable or disable filter the tagged operations. We can set a string, the filtering will be enabled using that string as the filter expression which is case sensitive matching anywhere inside the tag.
+You can also use enable-spring-security, enable-hateoas, enable-data-rest…
+
+
 
 # CRUD
 
