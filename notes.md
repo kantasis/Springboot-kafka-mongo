@@ -9,6 +9,9 @@ Send back proper responses
 Check if ID is unique
 [Spring Boot, React & MongoDB example: Build a CRUD Application](https://www.bezkoder.com/react-spring-boot-mongodb/)
 [Spring Boot + Swagger 3 example (with OpenAPI 3)](https://www.bezkoder.com/spring-boot-swagger-3/)
+Remove the kafka dependency
+Users collection should not be accessible
+
 
 # Swagger:
 
