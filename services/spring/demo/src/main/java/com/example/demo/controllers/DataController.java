@@ -32,8 +32,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-
-
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/data")
@@ -48,7 +46,6 @@ public class DataController {
    @Autowired
    private MongoTemplate mongoTemplate;
 
-   
    @Operation(
       summary = "Retrieve all documents",
       description = "Get all the documents in the specified collection."
@@ -60,18 +57,21 @@ public class DataController {
    })
    @GetMapping("/{collection}")
    public ResponseEntity<List<Document>> getAllData(
+      
       @PathVariable("collection")
       String collection_name,
-      @RequestParam(required = false)
-      String query
+
+      @RequestBody(required=false)
+      String query_str
+
    ){
-      // TODO: make use of the query parameter
-      
       // TODO: Implement pagination
 
-      // Retrieve all documents
-      List<Document> documents = mongoTemplate.findAll(
-         Document.class, 
+      System.out.println("GK> Got query:" + query_str);
+      BasicQuery basicQuery = new BasicQuery(query_str);
+      List<Document> documents = mongoTemplate.find( 
+         basicQuery,
+         Document.class,
          collection_name
       );
 
