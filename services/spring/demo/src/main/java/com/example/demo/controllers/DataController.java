@@ -47,8 +47,8 @@ public class DataController {
    private MongoTemplate mongoTemplate;
 
    @Operation(
-      summary = "Retrieve all documents",
-      description = "Get all the documents in the specified collection."
+      summary = "Query the collection",
+      description = "Get the documents in the specified collection. Use the body of the request to specify the query"
    )
    @ApiResponses({
       @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = List.class), mediaType = "application/json") }),
