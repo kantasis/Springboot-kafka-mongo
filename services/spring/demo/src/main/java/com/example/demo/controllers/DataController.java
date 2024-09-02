@@ -31,11 +31,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.log4j.Log4j2;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/data")
 @Tag(name = "Datalake", description = "Data Lake data management API")
+@Log4j2
 public class DataController {
 
    // private static final String collection_name = "data";
@@ -68,6 +70,8 @@ public class DataController {
       // TODO: Implement pagination
 
       System.out.println("GK> Got query:" + query_str);
+      log.info("GK> Got query!:" + query_str);
+      
       BasicQuery basicQuery = new BasicQuery(query_str);
       List<Document> documents = mongoTemplate.find( 
          basicQuery,
