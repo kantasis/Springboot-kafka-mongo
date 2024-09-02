@@ -13,4 +13,4 @@ docker compose up \
    # --remove-orphans \
 
 
-docker logs -f ${PROJECT_NAME}_spring_container
+docker logs -f datalake_spring_container

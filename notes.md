@@ -242,7 +242,8 @@ db.roles.insertMany([
 ])
 EOF
 
-docker logs -f tutorial_spring_container
+docker logs -f datalake_spring_container
+docker exec -it datalake_spring_container sh
 
 db.roles.drop()
 
