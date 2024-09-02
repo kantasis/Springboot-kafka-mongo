@@ -10,8 +10,8 @@ import com.example.demo.repositories.DataRepository;
 @Component
 public class MessageConsumer {
 
-      @Autowired
-      DataRepository dataRepository;
+      // @Autowired
+      // DataRepository dataRepository;
 
       // @KafkaListener(topics="my-topic", groupId="my-group-id")
       // public void listen(String message){

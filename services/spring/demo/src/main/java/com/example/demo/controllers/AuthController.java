@@ -104,62 +104,62 @@ public class AuthController {
       return ResponseEntity.ok(response);
    }
 
-   // @Operation(
-   //    summary = "Register",
-   //    description = "Provide a username, email and password to register in the API"
-   // )
-   // @ApiResponses({
-   //    @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema()) }),
-   //    @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
-   //    @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) 
-   // })
-   // @PostMapping("/signup")
-   // public ResponseEntity<?> registerUser (
-   //    @Valid
-   //    @RequestBody
-   //    SignupRequest signupRequest
-   // ){
-   //    if (userRepository.existsByUsername(signupRequest.getUsername()))
-   //       return ResponseEntity
-   //          .badRequest()
-   //          .body( new MessageResponse("Error email is already in use"));
+   @Operation(
+      summary = "Register",
+      description = "Provide a username, email and password to register in the API"
+   )
+   @ApiResponses({
+      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) 
+   })
+   @PostMapping("/signup")
+   public ResponseEntity<?> registerUser (
+      @Valid
+      @RequestBody
+      SignupRequest signupRequest
+   ){
+      if (userRepository.existsByUsername(signupRequest.getUsername()))
+         return ResponseEntity
+            .badRequest()
+            .body( new MessageResponse("Error email is already in use"));
 
-   //    UserModel user = new UserModel(
-   //       signupRequest.getUsername(),
-   //       signupRequest.getEmail(),
-   //       passwordEncoder.encode(signupRequest.getPassword())
-   //    );
+      UserModel user = new UserModel(
+         signupRequest.getUsername(),
+         signupRequest.getEmail(),
+         passwordEncoder.encode(signupRequest.getPassword())
+      );
 
-   //    // TODO: Refactor this ugly thing
-   //    Set<String> roles_strLst = signupRequest.getRoles();
-   //    Set<RoleModel> roles = new HashSet<>();
+      // TODO: Refactor this ugly thing
+      Set<String> roles_strLst = signupRequest.getRoles();
+      Set<RoleModel> roles = new HashSet<>();
       
-   //    if (roles_strLst == null) {
-   //       RoleModel roleModel = roleRepository
-   //          .findByName(RoleEnum.ROLE_USER)
-   //          .orElseThrow( () -> new RuntimeException("Error: Role is not found") );
-   //       roles.add(roleModel);
-   //    } else {
-   //       roles_strLst.forEach(role_str -> {
-   //          RoleEnum roleEnum;
-   //          if ( role_str == "admin" )
-   //             roleEnum = RoleEnum.ROLE_ADMIN;
-   //          else if ( role_str == "mod" )
-   //             roleEnum = RoleEnum.ROLE_MODERATOR;
-   //          else
-   //             // TODO: This one should not be the default case
-   //             roleEnum = RoleEnum.ROLE_USER;
+      if (roles_strLst == null) {
+         RoleModel roleModel = roleRepository
+            .findByName(RoleEnum.ROLE_USER)
+            .orElseThrow( () -> new RuntimeException("Error: Role is not found") );
+         roles.add(roleModel);
+      } else {
+         roles_strLst.forEach(role_str -> {
+            RoleEnum roleEnum;
+            if ( role_str == "admin" )
+               roleEnum = RoleEnum.ROLE_ADMIN;
+            else if ( role_str == "mod" )
+               roleEnum = RoleEnum.ROLE_MODERATOR;
+            else
+               // TODO: This one should not be the default case
+               roleEnum = RoleEnum.ROLE_USER;
 
-   //          RoleModel roleModel = roleRepository
-   //             .findByName(roleEnum)
-   //             .orElseThrow( () -> new RuntimeException("Error: Role is not found") );
-   //          roles.add(roleModel);
-   //       });
-   //    }
-   //    user.setRoles(roles);
-   //    userRepository.save(user);
-   //    return ResponseEntity.ok(
-   //       new MessageResponse("User registered successfully")
-   //    );
-   // }
+            RoleModel roleModel = roleRepository
+               .findByName(roleEnum)
+               .orElseThrow( () -> new RuntimeException("Error: Role is not found") );
+            roles.add(roleModel);
+         });
+      }
+      user.setRoles(roles);
+      userRepository.save(user);
+      return ResponseEntity.ok(
+         new MessageResponse("User registered successfully")
+      );
+   }
 }

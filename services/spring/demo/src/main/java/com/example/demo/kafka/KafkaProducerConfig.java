@@ -15,23 +15,23 @@ import org.springframework.kafka.core.ProducerFactory;
 @Configuration
 public class KafkaProducerConfig {
 
-   @Value(value = "${spring.kafka.bootstrap-servers}")
-   private String _kafkaBootstrap_addr;
+   // @Value(value = "${spring.kafka.bootstrap-servers}")
+   // private String _kafkaBootstrap_addr;
 
-   @Bean
-   public ProducerFactory<String, String> producerFactory(){
-      Map<String, Object> configProps = new HashMap<>();
-      configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,_kafkaBootstrap_addr);
-      configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,StringSerializer.class);
-      configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,StringSerializer.class);
-      System.out.println("GK> producerFactory: "+_kafkaBootstrap_addr);
-      return new DefaultKafkaProducerFactory<>(configProps);
-   }
+   // @Bean
+   // public ProducerFactory<String, String> producerFactory(){
+   //    Map<String, Object> configProps = new HashMap<>();
+   //    configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,_kafkaBootstrap_addr);
+   //    configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,StringSerializer.class);
+   //    configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,StringSerializer.class);
+   //    System.out.println("GK> producerFactory: "+_kafkaBootstrap_addr);
+   //    return new DefaultKafkaProducerFactory<>(configProps);
+   // }
 
-   @Bean
-   public KafkaTemplate<String,String> kafkaTemplate(){
-      System.out.println("GK> kafkaTemplate: "+_kafkaBootstrap_addr);
-      return new KafkaTemplate<>(producerFactory());
-   }
+   // @Bean
+   // public KafkaTemplate<String,String> kafkaTemplate(){
+   //    System.out.println("GK> kafkaTemplate: "+_kafkaBootstrap_addr);
+   //    return new KafkaTemplate<>(producerFactory());
+   // }
 
 }

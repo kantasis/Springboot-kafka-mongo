@@ -1,71 +1,50 @@
-version: "3"
+networks:
+   main_network:
+      name: ${PROJECT_NAME}_main_network
+
 services:
    # TODO: use the environment: element instead of arguments
-   datalake_spring_label:
-      image: datalake_spring_image
-      container_name: datalake_spring_container
+   spring_label:
+      image: ${PROJECT_NAME}_spring_image
+      container_name: ${PROJECT_NAME}_spring_container
       build:
          context: ./services/spring
       ports:
          - ${API_PORT}:${SPRING_PORT}
       env_file:
-         - .private/mongo.env
-         - .private/spring.env
+         - services/spring/.env
+         - services/mongodb/.env
+      restart: always
       volumes: 
          - ./shared/tomcat-logs:/tomcat/logs
          - ./shared/spring-logs:/spring/logs
       networks:
-         - datalake_main_network
+         - main_network
       depends_on:
-         - datalake_kafka_label
-         - datalake_mongo_label
-
-   datalake_zookeeper_label:
-      container_name: datalake_zookeeper_container
-      image: datalake_zookeeper_image
-      build: ./services/zookeeper
-      ports:
-         - 2181:2181
-      networks:
-         - datalake_main_network
-
-   datalake_kafka_label:
-      container_name: datalake_kafka_container
-      image: datalake_kafka_image
-      build: ./services/kafka
-      # ports:
-      #    - 9092:9092
-      networks:
-         - datalake_main_network
-      depends_on:
-         - datalake_zookeeper_label
+         - mongo_label
 
    # # This container is there for testing purposes
-   # datalake_python_label:
-   #    container_name: datalake_python_container
-   #    image: datalake_python_image
+   # python_label:
+   #    container_name: ${PROJECT_NAME}_python_container
+   #    image: ${PROJECT_NAME}_python_image
    #    build: ./services/python
    #    volumes:
    #       - ./shared/python:/shared
    #    environment:
    #       - GK_PWD=${PWD}
 
-   datalake_mongo_label:
-      container_name: datalake_mongo_container
-      image: datalake_mongo_image
+   mongo_label:
+      container_name: ${PROJECT_NAME}_mongo_container
+      image: ${PROJECT_NAME}_mongo_image
       build:
          context: ./services/mongodb
       env_file:
-         - .private/mongo.env
+         - services/mongodb/.env
       volumes: 
-         - datalake_mongo_volume:/data/db
+         - ./shared/mongodb/:/data/db
+      restart: always
       networks:
-         - datalake_main_network
+         - main_network
       # ports:
       #    - 27017:${MONGO_PORT}
 
-volumes:
-   datalake_mongo_volume: {}
-
-networks:
-   datalake_main_network: {}

@@ -10,29 +10,29 @@ import org.springframework.stereotype.Component;
 @Component
 public class MessageProducer {
 
-   @Autowired
-   private KafkaTemplate<String,String> kafkaTemplate;
+   // @Autowired
+   // private KafkaTemplate<String,String> kafkaTemplate;
 
-   public void sendMessage(String topic, String message){
-      kafkaTemplate.send(topic,message);
-   }
+   // public void sendMessage(String topic, String message){
+   //    kafkaTemplate.send(topic,message);
+   // }
 
-   // https://www.baeldung.com/spring-kafka
-   public void sendAsyncMessage(String topic, String message) {
+   // // https://www.baeldung.com/spring-kafka
+   // public void sendAsyncMessage(String topic, String message) {
 
-      CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, message);
+   //    CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, message);
 
-      future.whenComplete((result, ex) -> {
-         if (ex == null) {
-            System.out.println(
-               "Sent message=[" + message + "] with offset=[" + result.getRecordMetadata().offset() + "]"
-            );
-         } else {
-            System.out.println(
-               "Unable to send message=[" + message + "] due to : " + ex.getMessage()
-            );
-         }
-      });
+   //    future.whenComplete((result, ex) -> {
+   //       if (ex == null) {
+   //          System.out.println(
+   //             "Sent message=[" + message + "] with offset=[" + result.getRecordMetadata().offset() + "]"
+   //          );
+   //       } else {
+   //          System.out.println(
+   //             "Unable to send message=[" + message + "] due to : " + ex.getMessage()
+   //          );
+   //       }
+   //    });
    
-   }
+   // }
 }

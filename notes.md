@@ -1,5 +1,6 @@
 # TODO:
-Perform mogndb queries
+
+Add .private to version control
 Write to specific collections
 pagination
 datatype of the incoming document
