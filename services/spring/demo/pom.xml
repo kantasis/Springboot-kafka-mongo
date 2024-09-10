@@ -17,9 +17,16 @@
    <properties>
       <java.version>17</java.version>
       <spring-cloud.version>2023.0.1</spring-cloud.version>
+      <version.commons-io>2.4</version.commons-io>
    </properties>
 
    <dependencies>
+
+      <dependency>
+         <groupId>commons-io</groupId>
+         <artifactId>commons-io</artifactId>
+         <version>${version.commons-io}</version>
+      </dependency>
 
       <dependency>
          <groupId>org.springdoc</groupId>
