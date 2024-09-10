@@ -1,6 +1,8 @@
 # TODO:
 
 Add .private to version control
+Store Files
+Perform mogndb queries
 Write to specific collections
 pagination
 datatype of the incoming document
@@ -12,6 +14,40 @@ Check if ID is unique
 [Spring Boot + Swagger 3 example (with OpenAPI 3)](https://www.bezkoder.com/spring-boot-swagger-3/)
 Remove the kafka dependency
 Users collection should not be accessible
+FHIR schema enforce
+gridfs
+
+# Init mongodb
+```bash
+docker logs -f datalake_spring_container
+
+docker exec -i \
+   datalake_mongo_container \
+   mongosh \
+      --username rootuser \
+      --password rootpass \
+<<EOF
+use datalake_db;
+db.roles.insertMany([
+   { name: "ROLE_ADMIN" },
+   { name: "ROLE_MODERATOR" },
+   { name: "ROLE_USER" },
+])
+EOF
+
+curl \
+   --location 'localhost:8180/api/auth/signup' \
+   --header 'Content-Type: application/json' \
+   --data-raw '{
+      "username": "george",
+      "email": "george@george.com",
+      "password": "1234567",
+      "roles": ["user","admin"]
+   }
+   '
+
+```
+
 
 
 # Swagger:
@@ -20,6 +56,9 @@ https://www.bezkoder.com/spring-boot-swagger-3/
 
 Run Spring Boot project. Open browser with url:
 `http://localhost:8180/swagger-ui/index.html`
+`http://160.40.53.35:8180/swagger-ui/index.html`
+
+
 
 Open `http://localhost:8180/v3/api-docs`, you will see document in Json format:
 
@@ -115,14 +154,6 @@ DELETE	/api/tutorials/:id	delete a Tutorial by :id
 DELETE	/api/tutorials	delete all Tutorials
 GET	/api/tutorials/published	find all published Tutorials
 GET	/api/tutorials?title=[keyword]	find all Tutorials which title contains keyword
-
-
-
-
-
-
-
-
 
 # Auth 
 
