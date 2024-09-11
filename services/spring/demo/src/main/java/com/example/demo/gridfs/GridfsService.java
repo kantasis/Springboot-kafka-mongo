@@ -14,7 +14,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -31,7 +33,7 @@ public class GridfsService {
       DBObject metadata = new BasicDBObject();
       metadata.put("fileSize", uploaded_MultipartFile.getSize());
 
-      Object fileID_obj = gridFsTemplate.store(
+      org.bson.types.ObjectId fileID_obj = gridFsTemplate.store(
          uploaded_MultipartFile.getInputStream(), 
          uploaded_MultipartFile.getOriginalFilename(), 
          uploaded_MultipartFile.getContentType(), 
@@ -44,10 +46,7 @@ public class GridfsService {
    public GridfsModel loadFile(String id) throws IOException {
 
       GridFSFile gridFSFile = gridFsTemplate.findOne( 
-         new Query( Criteria
-            .where("_id")
-            .is(id)
-         ) 
+         getQueryById(id)
       );
 
       if (gridFSFile == null )
@@ -64,16 +63,41 @@ public class GridfsService {
       );
    }
 
-   public List<String> listAllFiles() {
-      // Create an empty query to fetch all files
-      List<String> fileNames = new ArrayList<>();
+   public Map<String, String> listAllFiles() {
+
+      Map<String, String> results_hashMap = new HashMap<>();
+
       gridFsTemplate.find(new Query())
          .forEach(gridFSFile -> {
-            fileNames.add(gridFSFile.getFilename());
+            results_hashMap.put(
+               gridFSFile.getObjectId().toString(),
+               gridFSFile.getFilename()
+            );
          }
       );
-      return fileNames;
+      return results_hashMap;
    }
 
+   public boolean delete(String id) {
+
+      Query query = getQueryById(id);
+      GridFSFile gridFSFile = gridFsTemplate.findOne(query);
+
+      // If ID not found, the file is null
+      if (gridFSFile == null)
+         return false;
+
+      gridFsTemplate.delete(query);
+
+      return true;
+   }
+
+   private Query getQueryById(String id){
+      return new Query( 
+         Criteria
+            .where("_id")
+            .is(id)
+      );
+   }
 
 }

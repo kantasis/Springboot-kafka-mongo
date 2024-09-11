@@ -69,8 +69,8 @@ public class DataController {
    ){
       // TODO: Implement pagination
 
-      System.out.println("GK> Got query:" + query_str);
-      log.info("GK> Got query!:" + query_str);
+      System.out.println("GK> Got query: " + query_str);
+      log.info("GK> Got query!: " + query_str);
       
       BasicQuery basicQuery = new BasicQuery(query_str);
       List<Document> documents = mongoTemplate.find( 
