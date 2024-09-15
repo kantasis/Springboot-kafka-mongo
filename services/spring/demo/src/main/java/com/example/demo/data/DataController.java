@@ -1,9 +1,10 @@
-package com.example.demo.controllers;
+package com.example.demo.data;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.catalina.connector.Response;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -48,16 +49,17 @@ public class DataController {
    @Autowired
    private MongoTemplate mongoTemplate;
 
+   @GetMapping("/{collection}")
    @Operation(
       summary = "Query the collection",
       description = "Get the documents in the specified collection. Use the body of the request to specify the query"
    )
    @ApiResponses({
-      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = List.class), mediaType = "application/json") }),
-      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
-      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
+      @ApiResponse(responseCode = "200", description = "Retrieval of all the documents", content = { @Content(schema = @Schema(implementation = List.class), mediaType = "application/json") }),
+      @ApiResponse(responseCode = "204", description = "No documents to retrieve", content = { @Content(schema = @Schema(implementation = List.class), mediaType = "application/json") }),
+      // @ApiResponse(responseCode = "404", description = "No documents to retrieve", content = { @Content(schema = @Schema()) }),
+      // @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
-   @GetMapping("/{collection}")
    public ResponseEntity<List<Document>> getAllData(
       
       @PathVariable("collection")
@@ -69,7 +71,6 @@ public class DataController {
    ){
       // TODO: Implement pagination
 
-      System.out.println("GK> Got query: " + query_str);
       log.info("GK> Got query!: " + query_str);
       
       BasicQuery basicQuery = new BasicQuery(query_str);
@@ -79,10 +80,20 @@ public class DataController {
          collection_name
       );
 
-      // Return a response with all the documents
-      return new ResponseEntity<>(documents,HttpStatus.OK);
+      if (documents.isEmpty())
+         return new ResponseEntity<>(
+            documents,
+            HttpStatus.NO_CONTENT
+         );
+         
+      return new ResponseEntity<>(
+         documents,
+         HttpStatus.OK
+      );
+
    }
 
+   @GetMapping("/{collection}/{id}")
    @Operation(
       summary = "Retrieve a specific document",
       description = "Find a document by ID form the specified collection."
@@ -92,7 +103,6 @@ public class DataController {
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
       @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
-   @GetMapping("/{collection}/{id}")
    public ResponseEntity<Document> getData(
       @PathVariable("collection")
       String collection_name,
@@ -104,8 +114,7 @@ public class DataController {
          Document.class,
          collection_name
       )
-      // We assume ids are unique
-      .get(0);
+      .get(0); // We assume ids are unique
 
       // TODO: Make this more pretty
       if (result != null)
@@ -115,6 +124,7 @@ public class DataController {
    }
 
 
+   @PostMapping("/{collection}")
    @Operation(
       summary = "Create a new document in the collection",
       description = "Creates a new document from the specified body"
@@ -124,7 +134,6 @@ public class DataController {
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
       @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
-   @PostMapping("/{collection}")
    public ResponseEntity<Document> createData(
       @PathVariable("collection")
       String collection_name,
@@ -133,8 +142,8 @@ public class DataController {
    ) {
       
       if (! document.containsKey("id") ){
-         System.out.println("GK> Received a POST request without an ID field");
-         return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+         log.info("GK> Received a POST request without an ID field");
+         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
       }
       
       String id = document.getString("id");
@@ -146,14 +155,14 @@ public class DataController {
       ).size();
 
       if (found_cnt>0){
-         System.out.println("GK> Received a POST request with an existing ID");
-         return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+         log.info("GK> Received a POST request with an existing ID, replacing");
       }
 
       Document saved_document = mongoTemplate.save(document, collection_name);
       return new ResponseEntity<>(saved_document, HttpStatus.OK);
    }
 
+   @PutMapping("/{collection}/{id}")
    @Operation(
       summary = "Update an existing document",
       description = "Finds an existing document by ID and updates it fields according to the resonse body"
@@ -163,7 +172,6 @@ public class DataController {
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
       @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
-   @PutMapping("/{collection}/{id}")
    public ResponseEntity<Document> updateData(
       @PathVariable("collection")
       String collection_name,
@@ -210,7 +218,8 @@ public class DataController {
       Document saved_document = mongoTemplate.save(new_document, collection_name);
       return new ResponseEntity<>(saved_document, HttpStatus.OK);
    }
-
+   
+   @DeleteMapping("/{collection}/{id}")
    @Operation(
       summary = "Delete a document",
       description = "Find a document by its ID in the specified collection and remove it"
@@ -220,8 +229,6 @@ public class DataController {
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
       @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
-   @DeleteMapping("/{collection}/{id}")
-   // DELETE
    public ResponseEntity<HttpStatus> deleteData(
       @PathVariable("collection")
       String collection_name,
@@ -244,6 +251,7 @@ public class DataController {
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
    }
 
+   @DeleteMapping("/{collection}")
    @Operation(
       summary = "Delete a collection",
       description = "Remove all documents from the specified collection"
@@ -253,7 +261,6 @@ public class DataController {
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
       @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
-   @DeleteMapping("/{collection}")
    public ResponseEntity<HttpStatus> deleteAllData(
       @PathVariable("collection")
       String collection_name
