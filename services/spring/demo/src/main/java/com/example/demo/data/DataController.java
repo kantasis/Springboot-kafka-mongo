@@ -37,7 +37,7 @@ import lombok.extern.log4j.Log4j2;
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api/data")
-@Tag(name = "Datalake", description = "Data Lake data management API")
+@Tag(name = "Data API", description = "Manage JSON documents")
 @Log4j2
 public class DataController {
 

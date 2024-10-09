@@ -15,6 +15,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,6 +27,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @CrossOrigin("*")
 @RequestMapping("api/")
+@Tag(name = "File API", description = "Manage large binary files")
 public class GridfsController {
 
    @Autowired
