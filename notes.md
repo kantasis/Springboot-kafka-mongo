@@ -364,6 +364,50 @@ db.dataModel.find();
 ```
 echo 'show databases' | 
 
+## Export Users:
+```bash
+
+mongoexport \
+   --authenticationDatabase=admin \
+   --username rootuser \
+   --password rootpass \
+   --db datalake_db \
+   --collection users \
+   --out users.json \
+   --jsonArray
+
+mongoexport \
+   --authenticationDatabase=admin \
+   --username rootuser \
+   --password rootpass \
+   --db datalake_db \
+   --collection roles \
+   --out roles.json \
+   --jsonArray
+
+```
+
+## Import Users
+```bash
+mongoimport \
+   --authenticationDatabase=admin \
+   --username rootuser \
+   --password rootpass \
+   --db datalake_db \
+   --collection users \
+   --file users.json \
+   --jsonArray
+
+mongoimport \
+   --authenticationDatabase=admin \
+   --username rootuser \
+   --password rootpass \
+   --db datalake_db \
+   --collection roles \
+   --file roles.json \
+   --jsonArray
+
+```
 
 
 # kafka
