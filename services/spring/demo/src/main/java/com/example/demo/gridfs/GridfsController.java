@@ -15,6 +15,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.io.IOException;
@@ -50,6 +51,7 @@ public class GridfsController {
          }
       ),
    })
+   @SecurityRequirement(name = "Authorization")
    public ResponseEntity<String> upload(
       @RequestParam("file")
       MultipartFile file
@@ -85,6 +87,7 @@ public class GridfsController {
          }
       ),
    })
+   @SecurityRequirement(name = "Authorization")
    public ResponseEntity<ByteArrayResource> download(
       @PathVariable 
       String id
@@ -136,6 +139,7 @@ public class GridfsController {
          }
       ),
    })
+   @SecurityRequirement(name = "Authorization")
    public ResponseEntity<Map<String, String>> list() throws IOException {
       
       Map<String, String> files_hashMap = gridfsService.listAllFiles();
@@ -172,6 +176,7 @@ public class GridfsController {
          }
       ),
    })
+   @SecurityRequirement(name = "Authorization")
    public ResponseEntity<String> delete(
       @PathVariable 
       String id

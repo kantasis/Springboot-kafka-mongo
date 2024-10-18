@@ -32,6 +32,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.log4j.Log4j2;
 
@@ -61,6 +62,7 @@ public class DataController {
       // @ApiResponse(responseCode = "404", description = "No documents to retrieve", content = { @Content(schema = @Schema()) }),
       // @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
+   @SecurityRequirement(name = "Authorization")
    public ResponseEntity<List<Document>> getAllData(
       
       @PathVariable("collection")
@@ -105,6 +107,7 @@ public class DataController {
       @ApiResponse(responseCode = "202", description = "No collections are in the data lake", content = { @Content(schema = @Schema(implementation = List.class), mediaType = "application/json") }),
       @ApiResponse(responseCode = "500", description = "Internal server error", content = { @Content(schema = @Schema()) })
    })
+   @SecurityRequirement(name = "Authorization")
    public ResponseEntity<Set<String>> getCollections(){
 
       try {
@@ -134,6 +137,7 @@ public class DataController {
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
       @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
+   @SecurityRequirement(name = "Authorization")
    public ResponseEntity<Document> getData(
       @PathVariable("collection")
       String collection_name,
@@ -165,6 +169,7 @@ public class DataController {
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
       @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
+   @SecurityRequirement(name = "Authorization")
    public ResponseEntity<Document> createData(
       @PathVariable("collection")
       String collection_name,
@@ -203,6 +208,7 @@ public class DataController {
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
       @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
+   @SecurityRequirement(name = "Authorization")
    public ResponseEntity<Document> updateData(
       @PathVariable("collection")
       String collection_name,
@@ -260,6 +266,7 @@ public class DataController {
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
       @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
+   @SecurityRequirement(name = "Authorization")
    public ResponseEntity<HttpStatus> deleteData(
       @PathVariable("collection")
       String collection_name,
@@ -292,6 +299,7 @@ public class DataController {
       @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
       @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
+   @SecurityRequirement(name = "Authorization")
    public ResponseEntity<HttpStatus> deleteAllData(
       @PathVariable("collection")
       String collection_name
