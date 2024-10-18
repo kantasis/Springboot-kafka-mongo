@@ -31,6 +31,7 @@ import com.example.demo.security.payloads.MessageResponse;
 import com.example.demo.security.payloads.SignupRequest;
 import com.example.demo.security.services.UserDetailsImpl;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -107,15 +108,16 @@ public class AuthController {
       return ResponseEntity.ok(response);
    }
 
-   @Operation(
-      summary = "Register",
-      description = "Provide a username, email and password to register in the API"
-   )
-   @ApiResponses({
-      @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema()) }),
-      @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
-      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) 
-   })
+   // @Operation(
+   //    summary = "Register",
+   //    description = "Provide a username, email and password to register in the API"
+   // )
+   // @ApiResponses({
+   //    @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema()) }),
+   //    @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
+   //    @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) 
+   // })
+   @Hidden
    @PostMapping("/signup")
    public ResponseEntity<?> registerUser (
       @Valid
@@ -167,6 +169,11 @@ public class AuthController {
       );
    }
 
+
+   @Operation(
+      summary = "Who am I",
+      description = "Request information about the current JWT"
+   )
    @GetMapping("/whoami")
    public ResponseEntity<?> whoami() {
 
