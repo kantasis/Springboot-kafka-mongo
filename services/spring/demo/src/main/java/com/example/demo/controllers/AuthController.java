@@ -13,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,10 +38,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import lombok.extern.log4j.Log4j2;
 
 @CrossOrigin(origins="*", maxAge=3600)
 @RestController
 @RequestMapping("/api/auth")
+@Log4j2
 @Tag(name = "Authentication API", description = "Signup and signin endpoints")
 public class AuthController {
 
@@ -119,6 +122,7 @@ public class AuthController {
       @RequestBody
       SignupRequest signupRequest
    ){
+      log.info("GK> Processing a register request");
       if (userRepository.existsByUsername(signupRequest.getUsername()))
          return ResponseEntity
             .badRequest()
@@ -152,7 +156,7 @@ public class AuthController {
 
             RoleModel roleModel = roleRepository
                .findByName(roleEnum)
-               .orElseThrow( () -> new RuntimeException("Error: Role is not found") );
+               .orElseThrow( () -> new RuntimeException("Error: Role is not found, did you initialize the database correctly?") );
             roles.add(roleModel);
          });
       }
@@ -162,4 +166,27 @@ public class AuthController {
          new MessageResponse("User registered successfully")
       );
    }
+
+   @GetMapping("/whoami")
+   public ResponseEntity<?> whoami() {
+
+      Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+      Object principal_obj = authentication.getPrincipal();
+      String message_str; 
+      if (principal_obj instanceof UserDetailsImpl) {
+         message_str = ((UserDetailsImpl) principal_obj).getUsername();
+      }else{
+         message_str = principal_obj.toString();
+      }
+
+      log.info("You are: "+message_str);
+      return ResponseEntity
+         .ok()
+         .body(
+            new MessageResponse(message_str)
+         )
+      ;
+   }
+
 }

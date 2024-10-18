@@ -1,7 +1,5 @@
 # TODO:
 
-Add .private to version control
-Store Files
 Perform mogndb queries
 Write to specific collections
 pagination

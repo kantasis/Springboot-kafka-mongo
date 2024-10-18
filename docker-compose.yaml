@@ -3,7 +3,6 @@ networks:
       name: ${PROJECT_NAME}_main_network
 
 services:
-   # TODO: use the environment: element instead of arguments
    spring_label:
       image: ${PROJECT_NAME}_spring_image
       container_name: ${PROJECT_NAME}_spring_container
@@ -13,7 +12,6 @@ services:
          - ${API_PORT}:${SPRING_PORT}
       env_file:
          - services/spring/.env
-         - services/mongodb/.env
       restart: always
       volumes: 
          - ./shared/tomcat-logs:/tomcat/logs
