@@ -3,6 +3,7 @@ package com.example.demo.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+// TODO: rename this to _roles?
 @Document(collection="roles")
 public class RoleModel {
 

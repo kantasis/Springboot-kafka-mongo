@@ -3,6 +3,7 @@ package com.example.demo.data;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.apache.catalina.connector.Response;
 import org.bson.Document;
@@ -90,6 +91,36 @@ public class DataController {
          documents,
          HttpStatus.OK
       );
+
+   }
+
+
+   @GetMapping("/")
+   @Operation(
+      summary = "List collections",
+      description = "Lists the available collections in the data lake"
+   )
+   @ApiResponses({
+      @ApiResponse(responseCode = "200", description = "List of collections retrieved", content = { @Content(schema = @Schema(implementation = List.class), mediaType = "application/json") }),
+      @ApiResponse(responseCode = "202", description = "No collections are in the data lake", content = { @Content(schema = @Schema(implementation = List.class), mediaType = "application/json") }),
+      @ApiResponse(responseCode = "500", description = "Internal server error", content = { @Content(schema = @Schema()) })
+   })
+   public ResponseEntity<Set<String>> getCollections(){
+
+      try {
+         // Retrieve the list of all collection names
+         Set<String> collections_StrSet = mongoTemplate.getCollectionNames();
+
+         if (collections_StrSet.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+         }
+
+         return new ResponseEntity<>(collections_StrSet, HttpStatus.OK);
+
+      } catch (Exception e) {
+         log.error("Error while retrieving collections", e);
+         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+      }
 
    }
 

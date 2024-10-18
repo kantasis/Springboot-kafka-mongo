@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+// TODO: rename this to _users?
 @Document(collection="users")
 public class UserModel {
 

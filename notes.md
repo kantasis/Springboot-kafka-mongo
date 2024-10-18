@@ -11,9 +11,12 @@ Check if ID is unique
 [Spring Boot, React & MongoDB example: Build a CRUD Application](https://www.bezkoder.com/react-spring-boot-mongodb/)
 [Spring Boot + Swagger 3 example (with OpenAPI 3)](https://www.bezkoder.com/spring-boot-swagger-3/)
 Remove the kafka dependency
-Users collection should not be accessible
+hide users and roles collections from the data lake
+   perhaps rename them to _users _roles
+   but first export users and roles from the DB so you don't have to remake them
+Figure out backups and exporting data from the datalake
 FHIR schema enforce
-gridfs
+TODO: Implement pagination
 
 # Init mongodb
 ```bash
