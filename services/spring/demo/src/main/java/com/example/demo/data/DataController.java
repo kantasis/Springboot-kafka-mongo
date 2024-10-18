@@ -2,6 +2,7 @@ package com.example.demo.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
@@ -11,11 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.BasicQuery;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -144,7 +149,7 @@ public class DataController {
       @PathVariable("id")
       String id
    ){
-      Document result = mongoTemplate.find(
+      Document result_Document = mongoTemplate.find(
          new BasicQuery("{\"id\": \""+id+"\"}"),
          Document.class,
          collection_name
@@ -152,12 +157,11 @@ public class DataController {
       .get(0); // We assume ids are unique
 
       // TODO: Make this more pretty
-      if (result != null)
-         return new ResponseEntity<>(result, HttpStatus.OK);
+      if (result_Document != null)
+         return new ResponseEntity<>(result_Document, HttpStatus.OK);
       else
          return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
    }
-
 
    @PostMapping("/{collection}")
    @Operation(
@@ -176,32 +180,38 @@ public class DataController {
       @RequestBody
       Document document
    ) {
-      
-      if (! document.containsKey("id") ){
-         log.info("GK> Received a POST request without an ID field");
-         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+      try{
+         log.info("GK> Received a POST request");
+         
+         if (! document.containsKey("id") ){
+            log.info("GK> Received a POST request without an ID field");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+         }
+         
+         String id = document.getString("id");
+
+         int found_cnt = mongoTemplate.find(
+            new BasicQuery("{\"id\": \""+id+"\"}"),
+            Document.class,
+            collection_name
+         ).size();
+
+         if (found_cnt>0){
+            log.info("GK> Received a POST request with an existing ID, replacing");
+         }
+
+         Document saved_Document = mongoTemplate.save(document, collection_name);
+         return new ResponseEntity<>(saved_Document, HttpStatus.OK);
+      } catch (Exception e) {
+         log.error("Error while posting the document: "+ e.getMessage(), e);
+         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
       }
-      
-      String id = document.getString("id");
-
-      int found_cnt = mongoTemplate.find(
-         new BasicQuery("{\"id\": \""+id+"\"}"),
-         Document.class,
-         collection_name
-      ).size();
-
-      if (found_cnt>0){
-         log.info("GK> Received a POST request with an existing ID, replacing");
-      }
-
-      Document saved_document = mongoTemplate.save(document, collection_name);
-      return new ResponseEntity<>(saved_document, HttpStatus.OK);
    }
 
    @PutMapping("/{collection}/{id}")
    @Operation(
       summary = "Update an existing document",
-      description = "Finds an existing document by ID and updates it fields according to the resonse body"
+      description = "Finds an existing document by ID and replaces it with the document in the request"
    )
    @ApiResponses({
       @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Document.class), mediaType = "application/json") }),
@@ -209,7 +219,7 @@ public class DataController {
       @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
    })
    @SecurityRequirement(name = "Authorization")
-   public ResponseEntity<Document> updateData(
+   public ResponseEntity<Document> putData(
       @PathVariable("collection")
       String collection_name,
       @PathVariable
@@ -252,8 +262,67 @@ public class DataController {
          collection_name
       );
    
-      Document saved_document = mongoTemplate.save(new_document, collection_name);
-      return new ResponseEntity<>(saved_document, HttpStatus.OK);
+      Document saved_Document = mongoTemplate.save(new_document, collection_name);
+      return new ResponseEntity<>(saved_Document, HttpStatus.OK);
+   }
+   
+   @PatchMapping("/{collection}/{id}")
+   @Operation(
+      summary = "Update specific fields of a document",
+      description = "Finds an existing document by ID and updates its fields according to the request body"
+   )
+   @ApiResponses({
+      @ApiResponse(responseCode = "200", description = "Document successfully updated", content = { @Content(schema = @Schema(implementation = Document.class), mediaType = "application/json") }),
+      @ApiResponse(responseCode = "404", description = "Document not found", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "400", description = "Invalid request body or query", content = { @Content(schema = @Schema()) }),
+      @ApiResponse(responseCode = "500", description = "Internal server error", content = { @Content(schema = @Schema()) })
+   })
+   @SecurityRequirement(name = "Authorization")
+   public ResponseEntity<Document> patchData(
+
+      @PathVariable("collection")
+      String collection_name,
+      
+      @PathVariable
+      String id,
+      
+      @RequestBody 
+      Map<String, Object> changes_map
+   
+   ) {
+      try {
+
+         // String new_id = new_document.getString("id");
+         // BasicQuery idQuery = new BasicQuery("{\"id\": \""+id+"\"}");
+         Query query = new Query(Criteria.where("id").is(id));
+
+         Update update = new Update();
+
+         for (Map.Entry<String, Object> entry : changes_map.entrySet()) {
+            String key_str = entry.getKey();
+            String val_str = entry.getValue().toString();
+            log.info("GK> "+key_str+" - " + val_str);
+            update.set(entry.getKey(), entry.getValue());
+         }
+
+         Document new_doc = mongoTemplate.findAndModify(
+            query, 
+            update, 
+            FindAndModifyOptions.options().returnNew(true), 
+            Document.class, 
+            collection_name
+         );
+   
+         if (new_doc == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+         }
+         
+         return new ResponseEntity<>(new_doc, HttpStatus.OK);
+
+      } catch (Exception e) {
+         log.error("Error while patching the document", e);
+         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+      }
    }
    
    @DeleteMapping("/{collection}/{id}")

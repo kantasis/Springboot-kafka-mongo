@@ -1,22 +1,17 @@
 # TODO:
 
-Perform mogndb queries
-Write to specific collections
-pagination
-datatype of the incoming document
+PATCH request
+Pagination
 role based access
-Prune unnecessary endpoints, classes and functions
 Send back proper responses
 Check if ID is unique
-[Spring Boot, React & MongoDB example: Build a CRUD Application](https://www.bezkoder.com/react-spring-boot-mongodb/)
-[Spring Boot + Swagger 3 example (with OpenAPI 3)](https://www.bezkoder.com/spring-boot-swagger-3/)
 Remove the kafka dependency
 hide users and roles collections from the data lake
    perhaps rename them to _users _roles
    but first export users and roles from the DB so you don't have to remake them
-Figure out backups and exporting data from the datalake
 FHIR schema enforce
-TODO: Implement pagination
+
+[Spring Boot, React & MongoDB example: Build a CRUD Application](https://www.bezkoder.com/react-spring-boot-mongodb/)
 
 # Init mongodb
 ```bash
@@ -49,8 +44,6 @@ curl \
 
 ```
 
-
-
 # Swagger:
 
 https://www.bezkoder.com/spring-boot-swagger-3/
@@ -60,30 +53,7 @@ Run Spring Boot project. Open browser with url:
 `http://160.40.53.35:8180/swagger-ui/index.html`
 
 
-
 Open `http://localhost:8180/v3/api-docs`, you will see document in Json format:
-
-**Note**:
-Add the following matchers in the `WebSecurityConfig` class
-```java
-   .requestMatchers("/v3/api-docs/**").permitAll()
-   .requestMatchers("/swagger-ui/**").permitAll()
-
-```
-
-– Use `api-docs.enabled=false` if you want to disable springdoc-openapi endpoints.
-– Use `swagger-ui.enabled=false` to disable the swagger-ui endpoint.
-– `api-docs.path` is for custom path of the OpenAPI documentation in Json format. Now it is http://localhost:8080/bezkoder-api-docs.
-– `swagger-ui.path` is for custom path of the Swagger documentation. If you visit http://localhost:8080/bezkoder-documentation, the browser will redirect you to http://localhost:8080/swagger-ui/index.html
-– `packages-to-scan=packageA,packageB`: list of packages to scan with comma separated.
-We also have packages-to-exclude, paths-to-match, paths-to-exclude.
-– `swagger-ui.tryItOutEnabled` if you want to enable “Try it out” section by default.
-– `swagger-ui.operationsSorter`: ‘alpha’ (sort by paths alphanumerically), ‘method’ (sort by HTTP method) or a function.
-– `swagger-ui.tagsSorter`: ‘alpha’ (sort by paths alphanumerically) or a function.
-– `swagger-ui.filter`: true/false to enable or disable filter the tagged operations. We can set a string, the filtering will be enabled using that string as the filter expression which is case sensitive matching anywhere inside the tag.
-You can also use enable-spring-security, enable-hateoas, enable-data-rest…
-
-
 
 # CRUD
 
@@ -94,83 +64,21 @@ PUT /api/data/{id}      udpateData(id, data) edit a document [update]
 DELETE /api/data/{id}   deleteData(id) remove record with id [delete]
 DELETE /api/data/       deleteAllData() remove all records [delete]
 
-
-```bash
-docker logs -f datalake_spring_container
-
-docker exec -i \
-   datalake_mongo_container \
-   mongosh \
-      --username rootuser \
-      --password rootpass \
-<<EOF
-use datalake_db;
-db.roles.insertMany([
-   { name: "ROLE_ADMIN" },
-   { name: "ROLE_MODERATOR" },
-   { name: "ROLE_USER" },
-])
-EOF
-
-
-```
-
-```js
-
-use datalake_db;
-show collections;
-db.roles.find()
-db.users.find()
-
-db.data.find({"id": "0"})
-db.data.find()
-db.data.find({})
-
-db.dynamic_collection.drop()
-
-```
-
-```java
-
-   template.updateFirst(
-      query(
-         where("name").is("Joe")
-      ), 
-      update("age", 35), 
-      Person.class
-   );
-
-```
-
 ## Bezcoder:
 https://www.bezkoder.com/spring-boot-mongodb-crud/
 https://github.com/bezkoder/spring-boot-data-mongodb
 
-Methods	Urls	Actions
-POST	/api/tutorials	create new Tutorial
-GET	/api/tutorials	retrieve all Tutorials
-GET	/api/tutorials/:id	retrieve a Tutorial by :id
-PUT	/api/tutorials/:id	update a Tutorial by :id
-DELETE	/api/tutorials/:id	delete a Tutorial by :id
-DELETE	/api/tutorials	delete all Tutorials
-GET	/api/tutorials/published	find all published Tutorials
-GET	/api/tutorials?title=[keyword]	find all Tutorials which title contains keyword
-
 # Auth 
 
-User -> [authentication filter] <-> Authentication Manager <-> Authentication Provider <-> User Details Service
-                                 -> Security Context
+User -> 
+[authentication filter] <-> 
+Authentication Manager <-> 
+Authentication Provider <-> 
+User Details Service -> 
+Security Context
+
 ## bezcoder
 https://www.bezkoder.com/spring-boot-jwt-auth-mongodb/
-
-localhost:8080/api/content/all
-localhost:8080/api/content/user
-localhost:8080/api/content/mod
-localhost:8080/api/content/admin
-
-localhost:8080/api/auth/signin
-localhost:8080/api/auth/signup
-
 
 ### Revisit
 
@@ -258,49 +166,6 @@ this one costed me 4 days of search
    private RoleEnum name;
 ```
 
-### snippets
-```bash
-docker exec -i \
-   datalake_mongo_container \
-   mongosh \
-      --username rootuser \
-      --password rootpass \
-<<EOF
-use datalake_db;
-db.roles.insertMany([
-   { name: "ROLE_ADMIN" },
-   { name: "ROLE_MODERATOR" },
-   { name: "ROLE_USER" },
-])
-EOF
-
-docker logs -f datalake_spring_container
-docker exec -it datalake_spring_container sh
-
-db.roles.drop()
-
-use datalake_db;
-db.data.find()
-db.roles.find()
-db.users.find()
-```
-
-
-
-Register some users with /signup api
-
-```json
-{
-   "username": "george",
-   "email": "asdf@asdf.com",
-   "password": 12345,
-   "roles": ["user"]
-}
-```
-
-
-
-
 ## amigo
 https://www.youtube.com/watch?v=KxqlJblhzfI
 https://github.com/ali-bouali/spring-boot-3-jwt-security
@@ -334,7 +199,6 @@ docker exec -it \
       --username rootuser \
       --password rootpass
 
-
 docker exec -it \
    tutorial_kafka_container \
    kafka-topics \
@@ -342,27 +206,9 @@ docker exec -it \
       --list
 
 docker logs -f tutorial_spring_container
-# 66191a1a5f89af0846895208
 # mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.2
 
-docker exec -i \
-   tutorial_mongo_container \
-   mongosh \
-      --username rootuser \
-      --password rootpass \
-<<EOF
-use datalake_db;
-db.dataModel.find();
-EOF
-
 ```
-
-```js
-use datalake_db;
-show collections;
-db.dataModel.find();
-```
-echo 'show databases' | 
 
 ## Export Users:
 ```bash
@@ -408,7 +254,6 @@ mongoimport \
    --jsonArray
 
 ```
-
 
 # kafka
 application.properties
@@ -606,18 +451,13 @@ docker exec -it \
       --topic "my-topic"
 
 # Consumer
-
 docker exec -it \
    tutorial_kafka_container \
    kafka-console-producer \
       --bootstrap-server tutorial_kafka_container:9092 \
       --topic "my-topic"
 
-
-
-
 ```
-
 
 KAFKA_LISTENERS: 
    EXTERNAL_SAME_HOST://:29092
@@ -632,10 +472,9 @@ KAFKA_LISTENER_SECURITY_PROTOCOL_MAP:
 http://localhost:8080/send?message=1313131313
 
 
-```xml
-<dependency>	
-    <groupId>org.springframework.data</groupId>	
-    <artifactId>spring-boot-starter-data-mongodb</artifactId>	
-    <version>2.7.11</version>	
-</dependency>
-```
+
+# Feature: Patch
+https://www.baeldung.com/spring-data-partial-update
+
+
+
