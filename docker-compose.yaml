@@ -9,7 +9,7 @@ services:
       build:
          context: ./services/spring
       ports:
-         - ${API_PORT}:${SPRING_PORT}
+         - ${GLOBAL_API_PORT}:${GLOBAL_SPRING_PORT}
       env_file:
          - services/spring/.env
       restart: always
